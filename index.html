@@ -632,8 +632,74 @@
           padding: 40px 20px;
         }
       }
+/* Project Images */
+.project-images {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--cell-bg);
+  border: 1px solid var(--cell-border);
+  transition: all 0.3s ease;
+}
 
+.main-project-image {
+  max-height: 220px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-bottom: 1px solid var(--cell-border);
+}
+
+.project-images .row img {
+  height: 100px;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.project-images .row img:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline-secondary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-images .row img {
+    height: 80px;
+  }
   
+  .main-project-image {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-images .row img {
+    height: 60px;
+  }
+}
     </style>
 </head>
 <body>
@@ -785,78 +851,203 @@
         </ul>
       </div>
 
-      <!-- Projects Section -->
-      <div id="projects" class="section mb-5">
-        <h2 class="text-center mb-4">Projects</h2>
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="card p-3 h-100">
-              <h5>CPJ</h5>
-              <p>
-                A full-stack website built for my graduation project using PHP,
-                MySQL, and Apache. It connects students looking for part-time
-                jobs with café owners through a simple online resume platform.
-              </p>
+<!-- Projects Section -->
+<div id="projects" class="section mb-5">
+  <h2 class="text-center mb-4">Projects</h2>
+  <div class="row">
+    <!-- Project 1 - CPJ -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <img src="img/projects/cpj/cpj.png" alt="CPJ Dashboard Interface" class="img-fluid rounded main-project-image" loading="lazy">
+          <div class="row g-2 mt-2">
+            <div class="col-6">
+              <img src="img/projects/cpj/signup.png" alt="CPJ Mobile View" class="img-fluid rounded" loading="lazy">
+            </div>
+            <div class="col-6">
+              <img src="img/projects/cpj/form.png" alt="CPJ Admin Panel" class="img-fluid rounded" loading="lazy">
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="card p-3 h-100">
-              <h5>ABYAN CAFM</h5>
-              <p>
-                A CRM solution for Abyan Real Estate Services to streamline
-                Facility Management operations. The platform featured tenant and
-                admin portals, maintenance request management with automated
-                emails, SLA tracking, financial oversight, tenant feedback
-                collection, and integration with ERP APIs for real-time data
-                synchronization.
-              </p>
+        </div>
+        <h5>CPJ</h5>
+        <p>
+          A full-stack website built for my graduation project using PHP,
+          MySQL, and Apache. It connects students looking for part-time
+          jobs with café owners through a simple online resume platform.
+        </p>
+        <div class="project-links mt-auto pt-2">
+          <a href="https://cpj-demo.com" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-external-link-alt me-1"></i> Live Demo
+          </a>
+          <!-- <a href="https://github.com/yourusername/cpj" target="_blank" class="btn btn-sm btn-outline-secondary mb-2">
+            <i class="fab fa-github me-1"></i> Code
+          </a> -->
+            <a href="img/projects/cpj/cpj-docs.pdf" class="btn btn-sm btn-outline-secondary mb-2">
+            <i class="fas fa-file-pdf me-1"></i> System Diagrams
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 - ABYAN CAFM -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <img src="img/projects/cafm/dashboard.png" alt="ABYAN CAFM Dashboard" class="img-fluid rounded main-project-image" loading="lazy">
+          <div class="row g-2 mt-2">
+            <div class="col-6">
+              <img src="img/projects/cafm/abyan1.png" alt="Tenant Portal" class="img-fluid rounded" loading="lazy">
+            </div>
+            <div class="col-6">
+              <img src="img/projects/cafm/abyan2.png" alt="Mobile App" class="img-fluid rounded" loading="lazy">
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="card p-3 h-100">
-              <h5>Bayan Virtual Assistant</h5>
-              <p>
-                a WhatsApp chatbot integrated with ERP CAFM, designed to provide
-                24/7 tenant and guest support. Features include complaint
-                management, feedback collection, guest services, and live chat
-                for complex inquiries.
-              </p>
+        </div>
+        <h5>ABYAN CAFM</h5>
+        <p>
+          A CRM solution for Abyan Real Estate Services to streamline
+          Facility Management operations. The platform featured tenant and
+          admin portals, maintenance request management with automated
+          emails, SLA tracking, financial oversight, tenant feedback
+          collection, and integration with ERP APIs.
+        </p>
+        <!-- <div class="project-links mt-auto pt-2">
+          <a href="abyan-case-study.pdf" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-file-pdf me-1"></i> Case Study
+          </a>
+          <a href="https://youtu.be/example" target="_blank" class="btn btn-sm btn-outline-secondary mb-2">
+            <i class="fab fa-youtube me-1"></i> Video
+          </a>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Project 3 - Bayan Virtual Assistant -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <!-- <img src="img/projects/bayan/flow.jpg" alt="Chatbot Flow Diagram" class="img-fluid rounded main-project-image" loading="lazy"> -->
+          <div class="row g-5">
+            <div class="col-4">
+              <img src="img/projects/bayan/iphone/chat1-portrait.png" alt="Sample Conversation 1" class="img-fluid rounded" loading="lazy">
+            </div>
+            <div class="col-4">
+              <img src="img/projects/bayan/iphone/chat2-portrait.png" alt="Sample Conversation 2" class="img-fluid rounded" loading="lazy">
+            </div>
+              <div class="col-4">
+              <img src="img/projects/bayan/agent.jpg" alt="Sample Conversation 1" class="img-fluid rounded" loading="lazy">
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="card p-3 h-100">
-              <h5>QRM chatbot</h5>
-              <p>
-                A WhatsApp chatbot for Qanbar Ready Mix, integrated with ERP and
-                CRM systems. It automates customer support with features like
-                instant invoice delivery, balance checks, multilingual support,
-                and feedback collection, with reviews managed through the CRM.
-              </p>
+        </div>
+        <h5>Bayan Virtual Assistant</h5>
+        <p>
+          A WhatsApp chatbot integrated with ERP CAFM, designed to provide
+          24/7 tenant and guest support. Features include complaint
+          management, feedback collection, guest services, and live chat
+          for complex inquiries.
+        </p>
+        <div class="project-links mt-auto pt-2">
+          <a href="https://wa.me/966920014651?text=مرحبا" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fab fa-whatsapp me-1"></i> Try Bot
+          </a>
+        
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 - QRM chatbot -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <img src="img/projects/qrm/iphone/chat1-portrait.png" alt="QRM Chatbot Dashboard" class="img-fluid rounded main-project-image" loading="lazy">
+        </div>
+        <h5>QRM chatbot</h5>
+        <p>
+          A WhatsApp chatbot for Qanbar Ready Mix, integrated with ERP and
+          CRM systems. It automates customer support with features like
+          instant invoice delivery, balance checks, multilingual support,
+          and feedback collection.
+        </p>
+        <!-- <div class="project-links mt-auto pt-2">
+          <a href="qrm-case-study.pdf" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-file-alt me-1"></i> Case Study
+          </a>
+        </div> -->
+         <div class="project-links mt-auto pt-2">
+          <a href="https://wa.me/966920015079?text=مرحبا" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fab fa-whatsapp me-1"></i> Try Bot
+          </a>
+        
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 - Eid Card Generators -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <div class="row g-2">
+            <div class="col-6">
+              <img src="img/projects/eid/al-Adha.png" alt="Eid Al-Adha Card" class="img-fluid rounded" loading="lazy">
+            </div>
+            <div class="col-6">
+              <img src="img/projects/eid/al-Fitr.png" alt="Eid Al-Fitr Card" class="img-fluid rounded" loading="lazy">
             </div>
           </div>
-          <div class="col-md-4 mb-4">
-            <div class="card p-3 h-100">
-              <h5>Eid al-Fitr & al-Adha Card Generators</h5>
-              <p>
-                Created two Eid greeting card tools for Al Ansari Holding:<br />
-                - Eid al-Adha: Customized per individual subsidiary company.<br />
-                - Eid al-Fitr: A single, unified card design used across the
-                entire holding group.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card p-3 h-100">
-              <h5>Career & Co-op Forms with Automated Reporting</h5>
-              <p>
-                Developed bilingual job and coop application forms for Al Ansari
-                Holding's career site to streamline candidate data collection.
-                Created an automated PHP system to generate real-time Excel
-                reports for admins with a single click.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
+        </div>
+        <h5>Eid al-Fitr & al-Adha Card Generators</h5>
+        <p>
+          Created two Eid greeting card tools for Al Ansari Holding:<br>
+          - Eid al-Adha: Customized per individual subsidiary company.<br>
+          - Eid al-Fitr: A single, unified card design used across the
+          entire holding group.
+        </p>
+        <!-- <div class="project-links mt-auto pt-2">
+          <a href="https://eidcards.example.com" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-external-link-alt me-1"></i> View Generator
+          </a>
+        </div> -->
+           <div class="project-links mt-auto pt-2">
+      <a href="http://alansari.com/Eid/al-Adha/" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+        <i class="fas fa-star me-1"></i> Al-Adha
+      </a>
+      <a href="http://alansari.com/Eid/al-Fitr/" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+        <i class="fas fa-moon me-1"></i> Al-Fitr
+      </a>
+    </div>
+      </div>
+    </div>
+
+    <!-- Project 6 - Career Forms -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <img src="img/projects/career/forms.png" alt="Career Application Forms" class="img-fluid rounded main-project-image" loading="lazy">
+        </div>
+        <h5>Career & Co-op Forms with Automated Reporting</h5>
+        <p>
+          Developed bilingual job and coop application forms for Al Ansari
+          Holding's career site to streamline candidate data collection.
+          Created an automated PHP system to generate real-time Excel
+          reports for admins with a single click.
+        </p>
+        <div class="project-links mt-auto pt-2">
+          <a href="http://alansari.com/career/" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-link me-1"></i> Job Form
+          </a>
+          <a href="http://alansari.com/career/coop" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-link me-1"></i> Co-op Form
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  <div class="col-md-4 mb-4">
             <div class="card p-3 h-100">
               <h5>
                 Career Portal Management System
@@ -904,8 +1095,15 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
+
+
+
+
+
+
+
+  </div>
+</div>
 
       <!-- Game section -->
         <div id="game" class="game-container">
