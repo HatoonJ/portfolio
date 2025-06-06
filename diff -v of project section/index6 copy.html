@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hatoon Alsaihati - Software Engineer</title>
+    <meta name="description" content="Portfolio of Hatoon Alsaihati, Software Engineer specializing in web development and chatbot solutions">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></noscript>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo.jpg" />
+    
+    <style>
+      :root {
+        --bg-color: #f8f9fa;
+        --text-color: #333;
+        --primary-color: #4e73df;
+        --primary-dark: #2e59d9;
+        --card-bg: #ffffff;
+        --nav-bg: #ffffff;
+        --hero-bg: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+        --skill-bg: #e6f0ff;
+        --skill-text: #4e73df;
+        --footer-border: #eee;
+        --footer-text: #777;
+        --cell-bg: #f8f9fa;
+        --cell-border: #e6f0ff;
+        --game-bg: #ffffff;
+        --header-text: white;
+      }
+
+      .dark-mode {
+        --bg-color: #1a1d24;
+        --text-color: #e0e3eb;
+        --primary-color: #4cd137;
+        --primary-dark: #3aa62d;
+        --card-bg: #252a33;
+        --nav-bg: #1a1d24;
+        --hero-bg: linear-gradient(135deg, #2c3e50 0%, #1a1d24 100%);
+        --skill-bg: #2f3640;
+        --skill-text: #4cd137;
+        --footer-border: #2f3640;
+        --footer-text: #aaa;
+        --cell-bg: #2f3640;
+        --cell-border: #3d434d;
+        --game-bg: #252a33;
+        --header-text: #e0e3eb;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+        margin: 0;
+        padding: 0 !important;
+      }
+
+      /* Navigation bar */
+      nav {
+        background-color: var(--nav-bg);
+        padding: 15px 25px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 1200px;
+        box-sizing: border-box;
+      }
+
+      nav.sticky {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 1200px;
+        margin: 0;
+        animation: slideDown 0.3s ease-out;
+        border-radius: 0 0 12px 12px;
+        box-sizing: border-box;
+        padding: 15px 25px;
+      }
+
+      @keyframes slideDown {
+        from { transform: translate(-50%, -100%); }
+        to { transform: translate(-50%, 0); }
+      }
+
+      body.sticky-header {
+        padding-top: 80px;
+      }
+
+      .dark-mode nav {
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Navigation layout */
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+
+      .navbar-brand-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color) !important;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        margin-right: auto;
+        padding: 5px 0;
+      }
+
+      .navbar-items {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-item {
+        margin: 0 15px;
+        position: relative;
+      }
+
+      .nav-link {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 8px 0;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease, left 0.3s ease;
+        border-radius: 3px;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+        left: 0;
+      }
+
+      .nav-link.active {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      /* Dark mode toggle */
+      .dark-mode-toggle {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        padding: 5px;
+      }
+
+      .dark-mode-toggle i {
+        transition: all 0.3s ease;
+        width: 20px;
+        text-align: center;
+      }
+
+      .dark-mode .dark-mode-toggle .fa-sun {
+        display: none;
+      }
+
+      .dark-mode .dark-mode-toggle .fa-moon {
+        display: block !important;
+        color: var(--primary-color);
+      }
+
+      .dark-mode-toggle .fa-moon {
+        display: none;
+      }
+
+      .dark-mode-icon {
+        font-size: 1.2rem;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+
+      .dark-mode .dark-mode-icon {
+        color: var(--primary-color);
+      }
+
+      /* Mobile menu styles */
+      @media (max-width: 992px) {
+        .navbar-container {
+          flex-direction: column;
+          align-items: flex-start;
+          position: relative;
+        }
+
+        .navbar-items {
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .navbar-nav {
+          flex-direction: column;
+          width: 100%;
+          display: none;
+          padding: 10px 0;
+        }
+
+        .nav-item {
+          margin: 5px 0;
+          width: 100%;
+        }
+
+        .nav-link {
+          padding: 10px 0;
+          display: block;
+        }
+
+        .navbar-toggler {
+          display: block;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          padding: 8px;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+
+        .navbar-nav.active {
+          display: flex;
+        }
+
+        .dark-mode-toggle {
+          margin: 15px 0;
+        }
+      }
+
+      /* Main content styles */
+      .hero {
+        padding: 100px 20px;
+        text-align: center;
+        background: var(--hero-bg);
+        border-radius: 20px;
+        color: var(--header-text);
+        margin-bottom: 30px;
+        transition: background 0.3s;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .card {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      a {
+        color: var(--primary-color);
+        transition: color 0.3s;
+      }
+
+      .btn-genz {
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 30px;
+        font-weight: 600;
+        padding: 12px 30px;
+        border: none;
+        transition: background-color 0.3s;
+      }
+
+      .btn-genz:hover {
+        background-color: var(--primary-dark);
+        color: white;
+      }
+
+      .skills {
+        background-color: var(--card-bg);
+        border-radius: 20px;
+        padding: 40px;
+        margin-top: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: background-color 0.3s;
+      }
+
+      .skills ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .skills li {
+        margin: 10px;
+        background: var(--skill-bg);
+        color: var(--skill-text);
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 500;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 50px;
+        border-top: 1px solid var(--footer-border);
+        color: var(--footer-text);
+        transition: border-color 0.3s, color 0.3s;
+      }
+/* Tic-Tac-Toe Game Styles */
+        .game-container {
+            max-width: 500px;
+            margin: 40px auto 0;
+            background-color: var(--game-bg);
+            padding: 20px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .game-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 70px);
+            grid-gap: 5px;
+        }
+
+        .cell {
+            width: 70px;
+            height: 70px;
+            background-color: var(--cell-bg);
+            border: 2px solid var(--cell-border);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cell:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            background-color: var(--skill-bg);
+        }
+
+        .status-panel {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--cell-border);
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .status-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 8px;
+            vertical-align: middle;
+            animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            font-weight: 600;
+            color: var(--text-color);
+            vertical-align: middle;
+        }
+
+        .reset-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .reset-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .reset-btn:active {
+            transform: translateY(0);
+        }
+
+        .reset-icon {
+            font-size: 1.2rem;
+            transition: transform 0.5s ease;
+        }
+
+        .reset-btn:hover .reset-icon {
+            transform: rotate(180deg);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .board {
+                grid-template-columns: repeat(3, 60px);
+            }
+            
+            .cell {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .board {
+                grid-template-columns: repeat(3, 50px);
+            }
+            
+            .cell {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .game-title {
+                font-size: 1.5rem;
+            }
+        }
+
+
+ 
+
+  
+
+     
+
+
+
+   
+
+     
+
+   
+
+
+
+  
+
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-dark);
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .hero h1,
+      .hero h2,
+      .hero h3,
+      .hero h4,
+      .hero h5,
+      .hero h6 {
+        color: var(--header-text) !important;
+      }
+
+      .hero p {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      /* Scroll to Top Button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+      }
+
+      .scroll-to-top:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .scroll-to-top svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* Services Section Styles */
+      .service-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .service-card {
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+    
+
+     
+
+    
+     
+        
+        .hero {
+          padding: 80px 20px;
+        }
+        
+        .section {
+          padding: 40px 20px;
+        }
+      }
+/* Project Images */
+.project-images {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--cell-bg);
+  border: 1px solid var(--cell-border);
+  transition: all 0.3s ease;
+}
+
+.main-project-image {
+  max-height: 220px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-bottom: 1px solid var(--cell-border);
+}
+
+.project-images .row img {
+  height: 100px;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.project-images .row img:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline-secondary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-images .row img {
+    height: 80px;
+  }
+  
+  .main-project-image {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-images .row img {
+    height: 60px;
+  }
+}
+
+.clickableImage {
+  cursor: pointer;
+}
+
+
+.modal-body .btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent !important;
+  border: none;
+  box-shadow: none;
+  z-index: 1051;
+}
+
+.modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="navbar-container">
+        <div class="navbar-brand-container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="img/logo.jpg"
+              alt="Logo"
+              style="height: 30px; vertical-align: middle; margin-right: 8px"
+              loading="lazy"
+            />
+            HatoonJ
+          </a>
+        </div>
+
+        <!-- Toggle button for mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          onclick="toggleMobileMenu()"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation items on the right -->
+        <div class="navbar-items">
+          <ul class="navbar-nav" id="mainNav">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#game">Game</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <div class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-sun dark-mode-icon"></i>
+                <i class="fas fa-moon dark-mode-icon" style="display: none"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container py-3">
+      <!-- Hero Section -->
+      <div class="hero text-center mb-5">
+        <h1 class="display-4">Hey, I'm a Software Engineer 👩‍💻</h1>
+        <p class="lead">
+          Building intelligent, scalable, and user-focused web solutions with a
+          passion for clean code.
+        </p>
+        <a href="#projects" class="btn btn-genz mt-4">See My Work</a>
+      </div>
+
+      <!-- About Section -->
+      <div id="about" class="section text-center mb-5">
+        <h2>About Me</h2>
+        <p class="mx-auto" style="max-width: 700px">
+          I'm a Saudi developer building modern applications for web and bots.
+          From backend logic in PHP/.NET to frontend with Bootstrap and
+          JavaScript. I'm also diving into C# and .NET Core APIs, and currently
+          involved with chatbot automation (ManyChat + Twilio + WhatsApp).
+        </p>
+      </div>
+
+      <!-- Services Section -->
+      <div id="services" class="section mb-5">
+        <h2 class="text-center mb-4">My Services</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card p-4 h-100 service-card text-center">
+              <div class="service-icon">💻</div>
+              <h4>Web Development</h4>
+              <p>
+                Custom web applications built with PHP, MySQL, and Bootstrap.
+                Responsive designs that work across all devices with clean,
+                maintainable code.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card p-4 h-100 service-card text-center">
+              <div class="service-icon">🤖</div>
+              <h4>Chatbot Development</h4>
+              <p>
+                WhatsApp chatbot solutions using Twilio and ManyChat. Automated
+                messaging, broadcast systems, and conversational flows for
+                business automation.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card p-4 h-100 service-card text-center">
+              <div class="service-icon">📊</div>
+              <h4>Data Automation</h4>
+              <p>
+                Smart solutions for automating data tasks like reporting, Excel
+                generation, and multilingual document handling — saving time and
+                reducing manual work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Section -->
+      <div id="skills" class="skills text-center mb-5">
+        <h2>Skills</h2>
+        <ul class="list-inline">
+          <li class="list-inline-item">PHP</li>
+          <li class="list-inline-item">MySQL</li>
+          <li class="list-inline-item">SQL</li>
+          <li class="list-inline-item">HTML</li>
+          <li class="list-inline-item">CSS</li>
+          <li class="list-inline-item">Bootstrap</li>
+          <li class="list-inline-item">JavaScript</li>
+          <li class="list-inline-item">.NET Core</li>
+          <li class="list-inline-item">C#</li>
+          <li class="list-inline-item">REST API</li>
+          <li class="list-inline-item">ManyChat</li>
+          <li class="list-inline-item">WhatsApp Bots</li>
+          <li class="list-inline-item">MailKit</li>
+          <li class="list-inline-item">Draw.io</li>
+          <li class="list-inline-item">Twilio</li>
+          <li class="list-inline-item">Automation</li>
+          <li class="list-inline-item">Access</li>
+          <li class="list-inline-item">UI/UX</li>
+          <li class="list-inline-item">UML</li>
+        </ul>
+      </div>
+
+<!-- Projects Section -->
+<div id="projects" class="section mb-5">
+  <h2 class="text-center mb-4">Projects</h2>
+  <div class="row">
+    <!-- Project 1 - CPJ -->
+    <!-- <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <!-- <img src="img/projects/cpj/cpj.png" alt="CPJ Dashboard Interface" class="img-fluid rounded main-project-image" loading="lazy"> -->
+          <!-- Your existing image --
+        <img src="img/projects/cpj/cpj.png" alt="Clickable Image" id="clickableImage" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#carouselModal">
+
+          <div class="row g-2 mt-2">
+            <div class="col-6">
+              <!-- <img src="img/projects/cpj/signup.png" alt="CPJ Mobile View" class="img-fluid rounded" loading="lazy"> --
+            <img src="img/projects/cpj/signup.png" alt="Clickable Image" id="clickableImage" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#carouselModal">
+
+            </div>
+            <div class="col-6">
+      
+
+
+
+    <!-- Project 1 - CPJ -->
+<div class="col-md-4 mb-4">
+  <div class="card p-3 h-100">
+    <div class="project-images mb-3">
+      <img src="img/projects/cpj/cpj.png" alt="CPJ Dashboard Interface" class="img-fluid rounded clickableImage" loading="lazy" data-bs-toggle="modal" data-bs-target="#carouselModal">
+
+      <div class="row g-2 mt-2">
+        <div class="col-6">
+          <img src="img/projects/cpj/signup.png" alt="CPJ Mobile View" class="img-fluid rounded clickableImage" loading="lazy" data-bs-toggle="modal" data-bs-target="#carouselModal">
+        </div>
+        <div class="col-6">
+          <img src="img/projects/cpj/form.png" alt="CPJ Admin Panel" class="img-fluid rounded clickableImage" loading="lazy" data-bs-toggle="modal" data-bs-target="#carouselModal">
+        </div>
+      </div>
+    </div>
+    <h5>CPJ</h5>
+    <p>
+      A full-stack website built for my graduation project using PHP,
+      MySQL, and Apache. It connects students looking for part-time
+      jobs with café owners through a simple online resume platform.
+    </p>
+    <div class="project-links mt-auto pt-2">
+      <a href="https://cpj-demo.com" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+        <i class="fas fa-external-link-alt me-1"></i> Live Demo
+      </a>
+      <a href="img/projects/cpj/cpj-docs.pdf" class="btn btn-sm btn-outline-secondary mb-2">
+        <i class="fas fa-file-pdf me-1"></i> System Diagrams
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Project 2 - ABYAN CAFM -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <img src="img/projects/cafm/dashboard.png" alt="ABYAN CAFM Dashboard" class="img-fluid rounded main-project-image" loading="lazy">
+          <div class="row g-2 mt-2">
+            <div class="col-6">
+              <img src="img/projects/cafm/abyan1.png" alt="Tenant Portal" class="img-fluid rounded" loading="lazy">
+            </div>
+            <div class="col-6">
+              <img src="img/projects/cafm/abyan2.png" alt="Mobile App" class="img-fluid rounded" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <h5>ABYAN CAFM</h5>
+        <p>
+          A CRM solution for Abyan Real Estate Services to streamline
+          Facility Management operations. The platform featured tenant and
+          admin portals, maintenance request management with automated
+          emails, SLA tracking, financial oversight, tenant feedback
+          collection, and integration with ERP APIs.
+        </p>
+        <!-- <div class="project-links mt-auto pt-2">
+          <a href="abyan-case-study.pdf" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-file-pdf me-1"></i> Case Study
+          </a>
+          <a href="https://youtu.be/example" target="_blank" class="btn btn-sm btn-outline-secondary mb-2">
+            <i class="fab fa-youtube me-1"></i> Video
+          </a>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Project 3 - Bayan Virtual Assistant -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <!-- <div class="project-images mb-3">
+          <!-- <img src="img/projects/bayan/flow.jpg" alt="Chatbot Flow Diagram" class="img-fluid rounded main-project-image" loading="lazy"> --
+          <div class="row g-5">
+            <div class="col-4">
+              <img src="img/projects/bayan/iphone/chat1-portrait.png" alt="Sample Conversation 1" class="img-fluid rounded" loading="lazy">
+            </div>
+            <div class="col-4">
+              <img src="img/projects/bayan/iphone/chat2-portrait.png" alt="Sample Conversation 2" class="img-fluid rounded" loading="lazy">
+            </div>
+              <div class="col-4">
+              <img src="img/projects/bayan/agent.jpg" alt="Sample Conversation 1" class="img-fluid rounded" loading="lazy">
+            </div>
+          </div>
+        </div> -->
+        <div class="project-images mb-3">
+          <img src="img/projects/bayan/iphone/chat1-portrait.png" alt="QRM Chatbot Dashboard" class="img-fluid rounded main-project-image" loading="lazy">
+        </div>
+        <h5>Bayan Virtual Assistant</h5>
+        <p>
+          A WhatsApp chatbot integrated with ERP CAFM, designed to provide
+          24/7 tenant and guest support. Features include complaint
+          management, feedback collection, guest services, and live chat
+          for complex inquiries.
+        </p>
+        <!-- <div class="project-links mt-auto pt-2">
+          <!-- <a href="https://wa.me/966920014651?text=مرحبا" target="_blank" class="btn btn-sm btn-genz me-2 mb-2"> --
+          <a href="https://wa.me/?text=مرحبا" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fab fa-whatsapp me-1"></i> Try Bot
+          </a>
+        
+        </div> -->
+
+        <div class="project-links mt-auto pt-2">
+          <button class="btn btn-sm btn-genz me-2 mb-2" disabled>
+            <i class="fab fa-whatsapp me-1"></i> Soon
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Project 4 - QRM chatbot -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <img src="img/projects/qrm/iphone/chat1-portrait.png" alt="QRM Chatbot Dashboard" class="img-fluid rounded main-project-image" loading="lazy">
+        </div>
+        <h5>QRM chatbot</h5>
+        <p>
+          A WhatsApp chatbot for Qanbar Ready Mix, integrated with ERP and
+          CRM systems. It automates customer support with features like
+          instant invoice delivery, balance checks, multilingual support,
+          and feedback collection.
+        </p>
+        <!-- <div class="project-links mt-auto pt-2">
+          <a href="qrm-case-study.pdf" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-file-alt me-1"></i> Case Study
+          </a>
+        </div> -->
+         <!-- <div class="project-links mt-auto pt-2">
+          <!-- <a href="https://wa.me/966920015079?text=مرحبا" target="_blank" class="btn btn-sm btn-genz me-2 mb-2"> --
+          <a href="https://wa.me/?text=مرحبا" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fab fa-whatsapp me-1"></i> Try Bot
+          </a>
+        
+        </div> -->
+              <div class="project-links mt-auto pt-2">
+          <button class="btn btn-sm btn-genz me-2 mb-2" disabled>
+            <i class="fab fa-whatsapp me-1"></i> Soon
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 - Eid Card Generators -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <div class="row g-2">
+            <div class="col-6">
+              <img src="img/projects/eid/al-Adha.png" alt="Eid Al-Adha Card" class="img-fluid rounded" loading="lazy">
+            </div>
+            <div class="col-6">
+              <img src="img/projects/eid/al-Fitr.png" alt="Eid Al-Fitr Card" class="img-fluid rounded" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <h5>Eid al-Fitr & al-Adha Card Generators</h5>
+        <p>
+          Created two Eid greeting card tools for Al Ansari Holding:<br>
+          - Eid al-Adha: Customized per individual subsidiary company.<br>
+          - Eid al-Fitr: A single, unified card design used across the
+          entire holding group.
+        </p>
+        <!-- <div class="project-links mt-auto pt-2">
+          <a href="https://eidcards.example.com" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-external-link-alt me-1"></i> View Generator
+          </a>
+        </div> -->
+           <div class="project-links mt-auto pt-2">
+      <a href="http://alansari.com/Eid/al-Adha/" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+        <i class="fas fa-star me-1"></i> Al-Adha
+      </a>
+      <a href="http://alansari.com/Eid/al-Fitr/" target="_blank" class="btn btn-sm btn-genz me-2 mb-2">
+        <i class="fas fa-moon me-1"></i> Al-Fitr
+      </a>
+    </div>
+      </div>
+    </div>
+
+    <!-- Project 6 - Career Forms -->
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100">
+        <div class="project-images mb-3">
+          <img src="img/projects/career/forms.png" alt="Career Application Forms" class="img-fluid rounded main-project-image" loading="lazy">
+        </div>
+        <h5>Career & Co-op Forms with Automated Reporting</h5>
+        <p>
+          Developed bilingual job and coop application forms for Al Ansari
+          Holding's career site to streamline candidate data collection.
+          Created an automated PHP system to generate real-time Excel
+          reports for admins with a single click.
+        </p>
+        <div class="project-links mt-auto pt-2">
+          <a href="http://alansari.com/career/" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-link me-1"></i> Job Form
+          </a>
+          <a href="http://alansari.com/career/coop" class="btn btn-sm btn-genz me-2 mb-2">
+            <i class="fas fa-link me-1"></i> Co-op Form
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  <div class="col-md-4 mb-4">
+            <div class="card p-3 h-100">
+              <h5>
+                Career Portal Management System
+                <span class="badge bg-warning text-dark">In Progress</span>
+              </h5>
+              <p>
+                Custom-built admin dashboard with CRUD for job/internship
+                applications, responsive UI, and user access controls.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card p-3 h-100">
+              <h5>
+                Discount App Company DB
+                <span class="badge bg-warning text-dark">In Progress</span>
+              </h5>
+              <p>
+                A backend database design for a mobile app that offers QR-based
+                discounts to employees across various companies. Includes tables
+                for users, companies, offers, and scan logs. Frontend and API
+                layer pending.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card p-3 h-100">
+              <h5>New Career Identity</h5>
+              <p>
+                Redesigned the company career section with a new UX/UI, form
+                structure, and backend logic.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card p-3 h-100">
+              <h5>Automated Excel Report for Job & Coop Applications</h5>
+              <p>
+                Developed an automated PHP tool that generates Excel reports for
+                job and coop applications using real-time data from a MySQL
+                database. Admin users can download the latest report with a
+                single click. Each time, the system regenerates the file with
+                fresh data and saves it on the server. Formatting includes
+                Arabic alignment and clean layout using PhpSpreadsheet.
+              </p>
+            </div>
+          </div>
+
+
+
+
+
+
+
+  </div>
+</div>
+
+      <!-- Game section -->
+        <div id="game" class="game-container">
+        <h2 class="game-title">Tic-Tac-Toe</h2>
+        <div class="game-content">
+            <div class="status-panel" id="status">
+                <span class="status-icon">◉</span>
+                <span class="status-text">Player X's Turn</span>
+            </div>
+            
+            <div class="board" id="board">
+                <div class="cell" data-cell="0"></div>
+                <div class="cell" data-cell="1"></div>
+                <div class="cell" data-cell="2"></div>
+                <div class="cell" data-cell="3"></div>
+                <div class="cell" data-cell="4"></div>
+                <div class="cell" data-cell="5"></div>
+                <div class="cell" data-cell="6"></div>
+                <div class="cell" data-cell="7"></div>
+                <div class="cell" data-cell="8"></div>
+            </div>
+            
+            <button class="reset-btn" id="reset">
+                <span class="reset-icon">↻</span>
+                <span class="reset-text">Reset Game</span>
+            </button>
+        </div>
+    </div>
+
+      <!-- Contact Section -->
+      <div id="contact" class="section text-center mb-5">
+        <h2>Let's Connect</h2>
+        <p>
+          Open for collabs, side projects, or just a tech convo! Email me at
+          <a href="mailto:hetoon_j@icloud.com">hetoon_j@icloud.com</a>
+        </p>
+        <div class="mt-4">
+          <a
+            href="https://www.linkedin.com/in/hatoon-alsaihati"
+            target="_blank"
+            class="btn btn-genz"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/HatoonJ"
+            target="_blank"
+            class="btn btn-genz ms-3"
+            >GitHub</a
+          >
+          <a href="Hatoon Alsaihati.pdf" download class="btn btn-genz ms-3"
+            >Download CV</a
+          >
+        </div>
+      </div>
+
+      <footer>&copy; <span id="current-year"></span> | Designed & Built by HatoonJ</footer>
+
+      <!-- Scroll to Top Button -->
+      <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 15l-6-6-6 6" />
+        </svg>
+      </button>
+    </div>
+
+
+
+
+
+    <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="carouselModalLabel">Image Gallery</h5>
+      </div> -->
+      <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/projects/cpj/cpj.png" class="d-block w-100" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img src="img/projects/cpj/signup.png" class="d-block w-100" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img src="img/projects/cpj/form.png" class="d-block w-100" alt="Third slide">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+      // Prevent FOUC (Flash of Unstyled Content)
+      document.documentElement.style.visibility = 'hidden';
+      document.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.style.visibility = '';
+      });
+
+      // Mobile menu toggle function with auto-close
+      function toggleMobileMenu() {
+        const nav = document.getElementById("mainNav");
+        nav.classList.toggle("active");
+      }
+      
+      // Close mobile menu when clicking a nav link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const nav = document.getElementById("mainNav");
+          if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+          }
+        });
+      });
+
+      // Dark mode toggle functionality
+      (function() {
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const sunIcon = document.querySelector(".fa-sun");
+        const moonIcon = document.querySelector(".fa-moon");
+        const body = document.body;
+        
+        // Check for saved preference or system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedMode = localStorage.getItem("darkMode");
+        
+        // Set initial state
+      
+        if (savedMode === "enabled" || (savedMode === null && prefersDark)) {
+          body.classList.add("dark-mode");
+          sunIcon.style.display = "none";
+          moonIcon.style.display = "block";
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          body.classList.remove("dark-mode");
+          sunIcon.style.display = "block";
+          moonIcon.style.display = "none";
+          if (savedMode !== null) {
+            localStorage.setItem("darkMode", "disabled");
+          }
+        }
+
+        darkModeToggle.addEventListener("click", () => {
+          body.classList.toggle("dark-mode");
+
+          // Toggle icon visibility
+          if (body.classList.contains("dark-mode")) {
+            sunIcon.style.display = "none";
+            moonIcon.style.display = "block";
+            localStorage.setItem("darkMode", "enabled");
+          } else {
+            sunIcon.style.display = "block";
+            moonIcon.style.display = "none";
+            localStorage.setItem("darkMode", "disabled");
+          }
+        });
+      })();
+
+// Tic-Tac-Toe Game with Compact Win/Draw Modal
+document.addEventListener('DOMContentLoaded', () => {
+    const cells = document.querySelectorAll('.cell');
+    const status = document.getElementById('status');
+    const resetBtn = document.getElementById('reset');
+    
+    // Create modal elements
+    const modal = document.createElement('div');
+    modal.className = 'game-modal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    `;
+    
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+    modalContent.style.cssText = `
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: scale(0.9);
+        transition: all 0.3s ease;
+        max-width: 300px;
+        width: 80%;
+    `;
+    
+    const modalTitle = document.createElement('h4');
+    modalTitle.style.cssText = `
+        color: var(--primary-color);
+        margin: 0 0 15px 0;
+        font-size: 1.3rem;
+    `;
+    
+    const modalButton = document.createElement('button');
+    modalButton.className = 'btn-genz';
+    modalButton.textContent = 'Play Again';
+    modalButton.style.cssText = `
+        margin-top: 15px;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    `;
+    
+    modalButton.addEventListener('click', () => {
+        modal.style.opacity = '0';
+        modal.style.visibility = 'hidden';
+        modalContent.style.transform = 'scale(0.9)';
+        resetGame();
+    });
+    
+    modalContent.appendChild(modalTitle);
+    modalContent.appendChild(modalButton);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    let currentPlayer = 'X';
+    let gameActive = true;
+    let board = ['', '', '', '', '', '', '', '', ''];
+    
+    // Winning conditions
+    const winningConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+        [0, 4, 8], [2, 4, 6]             // diagonals
+    ];
+    
+    // Handle cell click
+    function handleCellClick(e) {
+        const clickedCell = e.target;
+        const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell'));
+        
+        if (board[clickedCellIndex] !== '' || !gameActive) return;
+        
+        board[clickedCellIndex] = currentPlayer;
+        clickedCell.textContent = currentPlayer;
+        checkResult();
+    }
+    
+    // Check for win or draw
+    function checkResult() {
+        // Check for win
+        for (let condition of winningConditions) {
+            const [a, b, c] = condition;
+            if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                endGame(`${board[a]} Wins!`, `🎉 Player ${board[a]} Wins!`);
+                return;
+            }
+        }
+        
+        // Check for draw
+        if (!board.includes('')) {
+            endGame("It's a Draw!", "🤝 Game Draw! 🤝");
+            return;
+        }
+        
+        // Continue game
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        status.textContent = `Player ${currentPlayer}'s Turn`;
+    }
+    
+    // Handle game end
+    function endGame(statusText, modalText) {
+        status.textContent = statusText;
+        gameActive = false;
+        
+        // Show compact modal
+        modalTitle.textContent = modalText;
+        modal.style.opacity = '1';
+        modal.style.visibility = 'visible';
+        setTimeout(() => {
+            modalContent.style.transform = 'scale(1)';
+        }, 50);
+    }
+    
+    // Reset game
+    function resetGame() {
+        currentPlayer = 'X';
+        gameActive = true;
+        board = ['', '', '', '', '', '', '', '', ''];
+        status.textContent = `Player ${currentPlayer}'s Turn`;
+        cells.forEach(cell => cell.textContent = '');
+    }
+    
+    // Event listeners
+    cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+    resetBtn.addEventListener('click', resetGame);
+});    
+
+// Scroll to Top Button
+      (function() {
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add("visible");
+          } else {
+            scrollToTopBtn.classList.remove("visible");
+          }
+        });
+
+        scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+      })();
+
+      // Highlight active navigation link
+      (function() {
+        const sections = document.querySelectorAll(".section, .hero, .skills, .game-container");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+          let current = "";
+
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - 300) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        });
+
+        // Set initial active link based on URL hash
+        document.addEventListener("DOMContentLoaded", () => {
+          const hash = window.location.hash;
+          if (hash) {
+            const targetLink = document.querySelector(`.nav-link[href="${hash}"]`);
+            if (targetLink) targetLink.classList.add("active");
+          } else {
+            document.querySelector('.nav-link[href="#about"]').classList.add("active");
+          }
+        });
+      })();
+
+      // Sticky header functionality
+      (function() {
+        const nav = document.querySelector("nav");
+        const body = document.body;
+
+        function handleScroll() {
+          const scrollPosition = window.scrollY;
+          const headerHeight = nav.offsetHeight + 40;
+
+          if (scrollPosition > headerHeight) {
+            nav.classList.add("sticky");
+            body.classList.add("sticky-header");
+          } else {
+            nav.classList.remove("sticky");
+            body.classList.remove("sticky-header");
+          }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+
+        // Set initial state
+        document.addEventListener("DOMContentLoaded", function() {
+          const headerHeight = nav.offsetHeight + 40;
+          if (window.scrollY > headerHeight) {
+            nav.classList.add("sticky");
+            body.classList.add("sticky-header");
+          }
+          setBodyPadding();
+        });
+
+        // Calculate and set body padding
+        function setBodyPadding() {
+          const navHeight = nav.offsetHeight;
+          document.body.style.paddingTop = `${navHeight}px`;
+        }
+
+        window.addEventListener("resize", setBodyPadding);
+      })();
+
+      // Set current year in footer
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
