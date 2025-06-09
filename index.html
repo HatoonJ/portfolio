@@ -195,7 +195,7 @@
     .nav-link.active {
       color: var(--primary-color);
       font-weight: 600;
-      
+
     }
 
     /* Dark mode toggle */
@@ -290,9 +290,9 @@
         transition: background-color 0.3s;
       }
 
-      .nav-link:hover {
+      /* .nav-link:hover {
         background-color: rgba(0, 0, 0, 0.05);
-      }
+      } */
 
       /* Adjust dark mode toggle position */
       .dark-mode-toggle {
@@ -336,7 +336,7 @@
 
     .section {
       padding: 60px 20px;
-        scroll-margin-top: 70px;
+      scroll-margin-top: 70px;
     }
 
     .card {
@@ -374,7 +374,7 @@
       color: white;
     }
 
-    /* .skills {
+    .skills {
       background-color: var(--card-bg);
       border-radius: 20px;
       padding: 40px;
@@ -382,17 +382,34 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       transition: background-color 0.3s;
       scroll-margin-top: 100px;
-
     }
 
     .skills ul {
       list-style: none;
       padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin: 0;
     }
 
+    /* Default: hide all groups */
+    .skill-group {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    /* Show selected group only */
+    #skills-programming:checked~#group-programming,
+    #skills-frameworks:checked~#group-frameworks,
+    #skills-database:checked~#group-database,
+    #skills-apis:checked~#group-apis,
+    #skills-tools:checked~#group-tools {
+      display: flex;
+    }
+
+    /* Individual skill items */
     .skills li {
       margin: 10px;
       background: var(--skill-bg);
@@ -401,54 +418,54 @@
       border-radius: 20px;
       font-weight: 500;
       transition: background 0.3s, color 0.3s;
-    } */
+    }
 
-.skills {
-  background-color: var(--card-bg);
-  border-radius: 20px;
-  padding: 40px;
-  margin-top: 40px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s;
-  scroll-margin-top: 100px;
-}
+    /* Add these styles to your existing CSS */
 
-.skills ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    /* Dropdown styles to match theme */
+    .dropdown-menu {
+      background-color: var(--card-bg);
+      border: 1px solid var(--cell-border);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
 
-/* Default: hide all groups */
-.skill-group {
-  display: none;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
+    .dropdown-item {
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-/* Show selected group only */
-#skills-programming:checked ~ #group-programming,
-#skills-frameworks:checked ~ #group-frameworks,
-#skills-database:checked ~ #group-database,
-#skills-apis:checked ~ #group-apis,
-#skills-tools:checked ~ #group-tools {
-  display: flex;
-}
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      background-color: var(--skill-bg);
+      color: var(--skill-text);
+    }
 
-/* Individual skill items */
-.skills li {
-  margin: 10px;
-  background: var(--skill-bg);
-  color: var(--skill-text);
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: 500;
-  transition: background 0.3s, color 0.3s;
-}
+    .dropdown-toggle {
+      background-color: var(--skill-bg) !important;
+      color: var(--skill-text) !important;
+      border: none !important;
+      box-shadow: none !important;
+      transition: all 0.3s;
+    }
 
+    .dropdown-toggle:hover {
+      background-color: var(--primary-color) !important;
+      color: white !important;
+    }
+
+    /* Dropdown divider */
+    .dropdown-divider {
+      border-color: var(--cell-border);
+    }
+
+    /* Dropdown icons */
+    .dropdown-item i {
+      color: var(--primary-color);
+      width: 20px;
+      text-align: center;
+      margin-right: 8px;
+    }
 
 
     footer {
@@ -469,7 +486,7 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
-            scroll-margin-top: 70px;
+      scroll-margin-top: 70px;
 
     }
 
@@ -823,15 +840,16 @@
       height: 100%;
       /* Take full height of navbar */
     }
-    body.dark-mode .btn-close {
-  filter: invert(1);
-}
 
+    body.dark-mode .btn-close {
+      filter: invert(1);
+    }
   </style>
 </head>
 
 <!-- <body> -->
-  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80" tabindex="0">
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80" tabindex="0">
 
   <!-- Navigation - Structure unchanged, just optimized classes -->
   <nav class="navbar navbar-expand-lg navbar-light sticky"> <!--bg-transparent -->
@@ -940,72 +958,6 @@
     </section>
 
     <!-- Skills Section -->
-      <!-- <section id="skills" class="skills text-center py-5 my-5">
-      <h2>Skills</h2>
-        <ul class="list-inline">
-          <!-- Programming Languages --
-          <li class="list-inline-item"><i class="fab fa-php"></i> PHP</li>
-          <li class="list-inline-item"><i class="fas fa-code"></i> C#</li>
-          <li class="list-inline-item"><i class="fas fa-code"></i> Visual Basic</li>
-          <li class="list-inline-item"><i class="fab fa-js"></i> JavaScript</li>
-          <li class="list-inline-item"><i class="fab fa-html5"></i> HTML</li>
-          <li class="list-inline-item"><i class="fab fa-css3-alt"></i> CSS</li>
-          <li class="list-inline-item"><i class="fas fa-database"></i> SQL</li>
-
-          <!-- Frameworks & Libraries --
-          <li class="list-inline-item"><i class="fas fa-laptop-code"></i> ASP.NET</li>
-          <li class="list-inline-item"><i class="fas fa-laptop-code"></i> .NET Core</li>
-          <li class="list-inline-item"><i class="fas fa-project-diagram"></i> Entity Framework</li>
-          <li class="list-inline-item"><i class="fab fa-bootstrap"></i> Bootstrap</li>
-
-          <!-- Database & Servers --
-          <li class="list-inline-item"><i class="fas fa-database"></i> MySQL</li>
-          <li class="list-inline-item"><i class="fas fa-database"></i> Access</li>
-          <li class="list-inline-item"><i class="fas fa-server"></i> IIS</li>
-
-          <!-- APIs & Integration --
-          <li class="list-inline-item"><i class="fas fa-plug"></i> REST API</li>
-          <li class="list-inline-item"><i class="fas fa-cogs"></i> API Development</li>
-          <li class="list-inline-item"><i class="fas fa-sms"></i> Twilio</li>
-          <li class="list-inline-item"><i class="fas fa-envelope"></i> MailKit</li>
-          <li class="list-inline-item"><i class="fab fa-whatsapp"></i> WhatsApp API</li>
-          <li class="list-inline-item"><i class="fab fa-whatsapp"></i> WhatsApp Bots</li>
-          <li class="list-inline-item"><i class="fas fa-comments"></i> ManyChat</li>
-
-          <!-- Tools & Concepts --
-          <li class="list-inline-item"><i class="fas fa-project-diagram"></i> Draw.io</li>
-          <li class="list-inline-item"><i class="fas fa-robot"></i> Automation</li>
-          <li class="list-inline-item"><i class="fas fa-pencil-ruler"></i> UI/UX</li>
-          <li class="list-inline-item"><i class="fas fa-sitemap"></i> UML</li>
-        </ul>
-
-      <!-- <div class="skills-list">
-        <div class="mb-3">
-          <span class="badge bg-secondary me-2"><i class="fas fa-code me-1"></i>Languages</span>
-          <span class="me-2"><i class="fab fa-html5 text-danger"></i> HTML</span>
-          <span class="me-2"><i class="fab fa-css3-alt text-primary"></i> CSS</span>
-          <span class="me-2"><i class="fab fa-js-square text-warning"></i> JavaScript</span>
-          <span class="me-2"><i class="fab fa-php text-info"></i> PHP</span>
-          <span class="me-2"><i class="fas fa-database text-muted"></i> SQL/MySQL</span>
-        </div>
-
-        <div class="mb-3">
-          <span class="badge bg-secondary me-2"><i class="fas fa-wrench me-1"></i>Tools</span>
-          <span class="me-2"><i class="fab fa-visual-studio text-purple"></i> VS</span>
-          <span class="me-2"><i class="fas fa-code text-dark"></i> VS Code</span>
-          <span class="me-2"><i class="fas fa-server text-secondary"></i> IIS</span>
-        </div>
-
-        <div class="mb-3">
-          <span class="badge bg-secondary me-2"><i class="fas fa-plug me-1"></i>APIs & Frameworks</span>
-          <span class="me-2"><i class="fas fa-robot"></i> ManyChat</span>
-          <span class="me-2"><i class="fas fa-comments"></i> Twilio</span>
-          <span class="me-2"><i class="fas fa-network-wired"></i> REST API</span>
-          <span class="me-2"><i class="fas fa-project-diagram"></i> EF</span>
-        </div>
-      </div>
-    </section> -->
-    
     <section id="skills" class="skills text-center py-5 my-5 position-relative">
       <h2>Skills</h2>
 
@@ -1022,11 +974,16 @@
           ⚙️
         </button>
         <ul class="dropdown-menu">
-          <li><label class="dropdown-item" for="skills-programming"><i class="fas fa-code me-2"></i>Programming Languages</label></li>
-          <li><label class="dropdown-item" for="skills-frameworks"><i class="fas fa-laptop-code me-2"></i>Frameworks & Libraries</label></li>
-          <li><label class="dropdown-item" for="skills-database"><i class="fas fa-database me-2"></i>Databases & Servers</label></li>
-          <li><label class="dropdown-item" for="skills-apis"><i class="fas fa-plug me-2"></i>APIs & Integration</label></li>
-          <li><label class="dropdown-item" for="skills-tools"><i class="fas fa-wrench me-2"></i>Tools & Concepts</label></li>
+          <li><label class="dropdown-item" for="skills-programming"><i class="fas fa-code me-2"></i>Programming
+              Languages</label></li>
+          <li><label class="dropdown-item" for="skills-frameworks"><i class="fas fa-laptop-code me-2"></i>Frameworks &
+              Libraries</label></li>
+          <li><label class="dropdown-item" for="skills-database"><i class="fas fa-database me-2"></i>Databases &
+              Servers</label></li>
+          <li><label class="dropdown-item" for="skills-apis"><i class="fas fa-plug me-2"></i>APIs & Integration</label>
+          </li>
+          <li><label class="dropdown-item" for="skills-tools"><i class="fas fa-wrench me-2"></i>Tools & Concepts</label>
+          </li>
         </ul>
       </div>
 
@@ -1104,7 +1061,7 @@
               jobs with café owners through a simple online resume platform.
             </p>
             <div class="project-links mt-auto pt-2">
-                 <a href="img/projects/cpj/cpj-docs.pdf" class="btn btn-sm btn-outline-secondary mb-2">
+              <a href="img/projects/cpj/cpj-docs.pdf" class="btn btn-sm btn-outline-secondary mb-2">
                 <i class="fas fa-file-pdf me-1"></i> System Diagrams
               </a>
               <a href="#" target="_blank" class="btn btn-sm btn-genz me-2 mb-2 disabled">
@@ -1408,8 +1365,7 @@
     </footer>
 
     <button id="scrollToTopBtn" class="scroll-to-top">
-      <!-- <i class="fas fa-arrow-up"></i> -->
-       <i class="fa-solid fa-chevron-up"></i>
+      <i class="fa-solid fa-chevron-up"></i>
     </button>
   </div>
 
