@@ -376,51 +376,12 @@
             color: white;
         }
 
-        .skills {
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: background-color 0.3s;
-            scroll-margin-top: 100px;
+        .skills-container {
+            text-align: center;
         }
 
-        .skills ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        /* Default: hide all groups */
-        .skill-group {
-            display: none;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
-
-        /* Show selected group only */
-        /* #skills-programming:checked~#group-programming,
-        #skills-frameworks:checked~#group-frameworks,
-        #skills-database:checked~#group-database,
-        #skills-apis:checked~#group-apis,
-        #skills-tools:checked~#group-tools {
-            display: flex;
-        } */
-        /* Show selected group only */
-        #skills-programming:checked~.skills-container #group-programming,
-        #skills-frameworks:checked~.skills-container #group-frameworks,
-        #skills-database:checked~.skills-container #group-database,
-        #skills-apis:checked~.skills-container #group-apis,
-        #skills-tools:checked~.skills-container #group-tools {
-            display: flex;
-        }
-
-        /* Individual skill items */
-        .skills li {
+        /* Target only the skill items */
+        .skills-container .list-inline-item {
             margin: 10px;
             background: var(--skill-bg);
             color: var(--skill-text);
@@ -428,10 +389,23 @@
             border-radius: 20px;
             font-weight: 500;
             transition: background 0.3s, color 0.3s;
+            display: inline-block;
+            /* Maintain inline behavior */
         }
-        
 
-        /* Add these styles to your existing CSS */
+        /* Skill group visibility */
+        .skill-group {
+            display: none;
+        }
+
+        #skills-programming:checked~.skills-container #group-programming,
+        #skills-frameworks:checked~.skills-container #group-frameworks,
+        #skills-database:checked~.skills-container #group-database,
+        #skills-apis:checked~.skills-container #group-apis,
+        #skills-tools:checked~.skills-container #group-tools {
+            display: block;
+        }
+
 
         /* Dropdown styles to match theme */
         .dropdown-menu {
@@ -458,6 +432,9 @@
             border: none !important;
             box-shadow: none !important;
             transition: all 0.3s;
+            margin-top: -10px;
+            /* Moves the button up */
+
         }
 
         .dropdown-toggle:hover {
@@ -1080,78 +1057,84 @@
     <section id="skills" class="container py-5 my-md-5">
         <div class="text-center mb-5">
             <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">My Expertise</span>
-            <h2 class="mb-4 animate__animated animate__fadeIn">Technical Skills</h2>
-            <p class="text-muted mx-auto" style="max-width: 700px">Tools and technologies I work with daily</p>
+            <h2 class="mb-4">Technical Skills</h2>
         </div>
 
-        <div class="card p-4 p-md-5 border-0 animate__animated animate__fadeIn">
+        <div class="card p-4 p-md-5 border-0">
+            <!-- Radio inputs must be first -->
+            <input type="radio" name="skills-toggle" id="skills-programming" class="d-none" checked>
+            <input type="radio" name="skills-toggle" id="skills-frameworks" class="d-none">
+            <input type="radio" name="skills-toggle" id="skills-database" class="d-none">
+            <input type="radio" name="skills-toggle" id="skills-apis" class="d-none">
+            <input type="radio" name="skills-toggle" id="skills-tools" class="d-none">
+
             <div class="position-relative">
-
-                <!-- Add this right before your dropdown menu in the skills section -->
-                <input type="radio" name="skills-toggle" id="skills-programming" class="d-none" checked>
-                <input type="radio" name="skills-toggle" id="skills-frameworks" class="d-none">
-                <input type="radio" name="skills-toggle" id="skills-database" class="d-none">
-                <input type="radio" name="skills-toggle" id="skills-apis" class="d-none">
-                <input type="radio" name="skills-toggle" id="skills-tools" class="d-none">
-
                 <!-- Dropdown menu -->
                 <div class="position-absolute top-0 end-0">
-                    <button class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" type="button"><i class="fas fa-filter me-1"></i> Filter Skills</button>
+                    <button class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"
+                        type="button">
+                        <i class="fas fa-filter me-1"></i> Filter Skills
+                    </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><label class="dropdown-item" for="skills-programming"><i class="fas fa-code me-2"></i>Programming</label></li>
-                        <li><label class="dropdown-item" for="skills-frameworks"><i class="fas fa-laptop-code me-2"></i>Frameworks</label></li>
-                        <li><label class="dropdown-item" for="skills-database"><i class="fas fa-database me-2"></i>Databases</label></li>
-                        <li><label class="dropdown-item" for="skills-apis"><i class="fas fa-plug me-2"></i>APIs</label></li>
-                        <li><label class="dropdown-item" for="skills-tools"><i class="fas fa-wrench me-2"></i>Tools</label></li>
-                    </ul>
-                </div>
-
-                <div class="skills-container">
-                    <ul class="list-inline skill-group" id="group-programming">
-                        <li class="list-inline-item"><i class="fab fa-php"></i> PHP</li>
-                        <li class="list-inline-item"><i class="fas fa-code"></i> C#</li>
-                        <li class="list-inline-item"><i class="fas fa-code"></i> Visual Basic</li>
-                        <li class="list-inline-item"><i class="fab fa-js"></i> JavaScript</li>
-                        <li class="list-inline-item"><i class="fab fa-html5"></i> HTML</li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i> CSS</li>
-                        <li class="list-inline-item"><i class="fas fa-database"></i> SQL</li>
-                    </ul>
-
-                    <ul class="list-inline skill-group" id="group-frameworks">
-                        <li class="list-inline-item"><i class="fas fa-laptop-code"></i> ASP.NET</li>
-                        <li class="list-inline-item"><i class="fas fa-laptop-code"></i> .NET Core</li>
-                        <li class="list-inline-item"><i class="fas fa-project-diagram"></i> Entity Framework</li>
-                        <li class="list-inline-item"><i class="fab fa-bootstrap"></i> Bootstrap</li>
-                    </ul>
-
-                    <ul class="list-inline skill-group" id="group-database">
-                        <li class="list-inline-item"><i class="fas fa-database"></i> MySQL</li>
-                        <li class="list-inline-item"><i class="fas fa-database"></i> Access</li>
-                        <li class="list-inline-item"><i class="fas fa-server"></i> IIS</li>
-                    </ul>
-
-                    <ul class="list-inline skill-group" id="group-apis">
-                        <li class="list-inline-item"><i class="fas fa-plug"></i> REST API</li>
-                        <li class="list-inline-item"><i class="fas fa-cogs"></i> API Development</li>
-                        <li class="list-inline-item"><i class="fas fa-sms"></i> Twilio</li>
-                        <li class="list-inline-item"><i class="fas fa-envelope"></i> MailKit</li>
-                        <li class="list-inline-item"><i class="fab fa-whatsapp"></i> WhatsApp API</li>
-                        <li class="list-inline-item"><i class="fab fa-whatsapp"></i> WhatsApp Bots</li>
-                        <li class="list-inline-item"><i class="fas fa-comments"></i> ManyChat</li>
-                    </ul>
-
-                    <ul class="list-inline skill-group" id="group-tools">
-                        <li class="list-inline-item"><i class="fas fa-project-diagram"></i> Draw.io</li>
-                        <li class="list-inline-item"><i class="fas fa-robot"></i> Automation</li>
-                        <li class="list-inline-item"><i class="fas fa-pencil-ruler"></i> UI/UX</li>
-                        <li class="list-inline-item"><i class="fas fa-sitemap"></i> UML</li>
+                        <li><label class="dropdown-item" for="skills-programming"><i
+                                    class="fas fa-code me-2"></i>Programming Languages</label></li>
+                        <li><label class="dropdown-item" for="skills-frameworks"><i
+                                    class="fas fa-laptop-code me-2"></i>Frameworks</label></li>
+                        <li><label class="dropdown-item" for="skills-database"><i
+                                    class="fas fa-database me-2"></i>Databases</label></li>
+                        <li><label class="dropdown-item" for="skills-apis"><i class="fas fa-plug me-2"></i>APIs</label>
+                        </li>
+                        <li><label class="dropdown-item" for="skills-tools"><i
+                                    class="fas fa-wrench me-2"></i>Tools</label></li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Skill groups container -->
+            <div class="skills-container mt-4">
+                <ul class="list-inline skill-group" id="group-programming">
+                    <li class="list-inline-item"><i class="fab fa-php"></i> PHP</li>
+                    <li class="list-inline-item"><i class="fas fa-code"></i> C#</li>
+                    <li class="list-inline-item"><i class="fas fa-code"></i> Visual Basic</li>
+                    <li class="list-inline-item"><i class="fab fa-js"></i> JavaScript</li>
+                    <li class="list-inline-item"><i class="fab fa-html5"></i> HTML</li>
+                    <li class="list-inline-item"><i class="fab fa-css3-alt"></i> CSS</li>
+                    <li class="list-inline-item"><i class="fas fa-database"></i> SQL</li>
+                </ul>
+
+
+                <ul class="list-inline skill-group" id="group-frameworks">
+                    <li class="list-inline-item"><i class="fas fa-laptop-code"></i> ASP.NET</li>
+                    <li class="list-inline-item"><i class="fas fa-laptop-code"></i> .NET Core</li>
+                    <li class="list-inline-item"><i class="fas fa-project-diagram"></i> Entity Framework</li>
+                    <li class="list-inline-item"><i class="fab fa-bootstrap"></i> Bootstrap</li>
+                </ul>
+
+                <ul class="list-inline skill-group" id="group-database">
+                    <li class="list-inline-item"><i class="fas fa-database"></i> MySQL</li>
+                    <li class="list-inline-item"><i class="fas fa-database"></i> Access</li>
+                    <li class="list-inline-item"><i class="fas fa-server"></i> IIS</li>
+                </ul>
+
+                <ul class="list-inline skill-group" id="group-apis">
+                    <li class="list-inline-item"><i class="fas fa-plug"></i> REST API</li>
+                    <li class="list-inline-item"><i class="fas fa-cogs"></i> API Development</li>
+                    <li class="list-inline-item"><i class="fas fa-sms"></i> Twilio</li>
+                    <li class="list-inline-item"><i class="fas fa-envelope"></i> MailKit</li>
+                    <li class="list-inline-item"><i class="fab fa-whatsapp"></i> WhatsApp API</li>
+                    <li class="list-inline-item"><i class="fab fa-whatsapp"></i> WhatsApp Bots</li>
+                    <li class="list-inline-item"><i class="fas fa-comments"></i> ManyChat</li>
+                </ul>
+
+                <ul class="list-inline skill-group" id="group-tools">
+                    <li class="list-inline-item"><i class="fas fa-project-diagram"></i> Draw.io</li>
+                    <li class="list-inline-item"><i class="fas fa-robot"></i> Automation</li>
+                    <li class="list-inline-item"><i class="fas fa-pencil-ruler"></i> UI/UX</li>
+                    <li class="list-inline-item"><i class="fas fa-sitemap"></i> UML</li>
+                </ul>
             </div>
+        </div>
     </section>
-
-
 
     <!-- Projects Section -->
     <section id="project" class="container py-5 my-md-5">
@@ -1176,12 +1159,15 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="text-muted mb-3">A full-stack job matching platform connecting students with local
-                            businesses.</p>
+                        <p class="text-muted mb-3">A full-stack website built for my graduation project. It connects
+                            students looking for part-time jobs with café owners through a simple online resume
+                            platform.</p>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge bg-primary bg-opacity-10 text-primary">PHP</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">MySQL</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Apache</span>
+
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-0 pt-0">
@@ -1194,7 +1180,91 @@
                 </div>
             </div>
 
-            <!-- Repeat for other projects with same enhanced styling -->
+            <!-- Project 2 - Enhanced Card -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                <div class="card h-100 border-0 project-card">
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/cafm/dashboard.png" class="img-fluid w-100 clickableImage"
+                            style="height: 200px; object-fit: cover;" loading="lazy"
+                            data-images='["img/projects/cafm/dashboard.png", "img/projects/cafm/abyan1.png", "img/projects/cafm/abyan2.png"]'
+                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">ABYAN CAFM</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3"> A CRM solution for Abyan Real Estate Services to streamline
+                            Facility Management operations. The platform featured tenant and
+                            admin portals, maintenance request management with automated
+                            emails, SLA tracking, financial oversight, tenant feedback
+                            collection, and integration with ERP APIs.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">PHP</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">MySQL</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">JavaScript</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">HTML</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">CSS</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">REST API</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Visual Studio Code</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">IIS</span>
+                              <span class="badge bg-primary bg-opacity-10 text-primary">MailKit</span>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 1 - Enhanced Card -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                <div class="card h-100 border-0 project-card">
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/bayan/iphone/chat1-portrait.png" class="img-fluid w-100 clickableImage"
+                            style="height: 200px; object-fit: cover;" loading="lazy"
+                            data-images='["img/projects/bayan/iphone/chat1-portrait.png"]'
+                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">Bayan Virtual Assistant</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">    A WhatsApp chatbot integrated with ERP CAFM, providing 24/7
+              support for tenants and guests. It supports Arabic and English,
+              and responds to user input through keyword recognition. Features
+              include complaint management, feedback collection, guest
+              services, and live chat.</p>
+       <div class="d-flex flex-wrap gap-2">
+  <span class="badge bg-primary bg-opacity-10 text-primary">ManyChat</span>
+  <span class="badge bg-primary bg-opacity-10 text-primary">.NET Core API</span>
+  <span class="badge bg-primary bg-opacity-10 text-primary">C#</span>
+  <span class="badge bg-primary bg-opacity-10 text-primary">MySQL</span>
+  <span class="badge bg-primary bg-opacity-10 text-primary">Twilio</span>
+  <span class="badge bg-primary bg-opacity-10 text-primary">MailKit</span>
+</div>
+
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pt-0">
+                        <!-- <div class="project-links">
+                            <a href="img/projects/cpj/cpj-docs.pdf" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-file-pdf me-1"></i> Documentation
+                            </a>
+                        </div> -->
+                            
+    <div class="project-links mt-auto pt-2">
+              <button class="btn btn-sm btn-genz me-2 mb-2" disabled>
+                <i class="fab fa-whatsapp me-1"></i> Soon
+              </button>
+            </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
         </div>
     </section>
 
@@ -1230,7 +1300,7 @@
     <button id="scrollToTopBtn" class="scroll-to-top">
         <i class="fa-solid fa-chevron-up"></i>
     </button> -->
-    
+
     </div>
 
     <!-- Project Modal -->
@@ -1259,13 +1329,13 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-   
-   <script>
+
+    <script>
         // Combined initialization
         document.addEventListener("DOMContentLoaded", () => {
             // Set current year
-            document.getElementById("current-year").textContent =
-                new Date().getFullYear();
+            // document.getElementById("current-year").textContent =
+            //     new Date().getFullYear();
 
             // Dark Mode - Original logic made more concise
             const darkModeToggle = document.getElementById("darkModeToggle");
@@ -1294,138 +1364,138 @@
             });
 
             // Tic-Tac-Toe - Original game logic preserved
-            const cells = document.querySelectorAll(".cell");
-            const status = document.getElementById("status");
-            const resetBtn = document.getElementById("reset");
+            //         const cells = document.querySelectorAll(".cell");
+            //         const status = document.getElementById("status");
+            //         const resetBtn = document.getElementById("reset");
 
-            const modal = document.createElement("div");
-            modal.className = "game-modal";
-            modal.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    `;
+            //         const modal = document.createElement("div");
+            //         modal.className = "game-modal";
+            //         modal.style.cssText = `
+            //   position: fixed;
+            //   top: 0;
+            //   left: 0;
+            //   width: 100%;
+            //   height: 100%;
+            //   background-color: rgba(0,0,0,0.5);
+            //   display: flex;
+            //   justify-content: center;
+            //   align-items: center;
+            //   z-index: 2000;
+            //   opacity: 0;
+            //   visibility: hidden;
+            //   transition: all 0.3s ease;
+            // `;
 
-            const modalContent = document.createElement("div");
-            modalContent.className = "modal-content";
-            modalContent.style.cssText = `
-      background-color: var(--card-bg);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transform: scale(0.9);
-      transition: all 0.3s ease;
-      max-width: 300px;
-      width: 80%;
-    `;
+            //         const modalContent = document.createElement("div");
+            //         modalContent.className = "modal-content";
+            //         modalContent.style.cssText = `
+            //   background-color: var(--card-bg);
+            //   padding: 20px;
+            //   border-radius: 12px;
+            //   text-align: center;
+            //   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            //   transform: scale(0.9);
+            //   transition: all 0.3s ease;
+            //   max-width: 300px;
+            //   width: 80%;
+            // `;
 
-            const modalTitle = document.createElement("h4");
-            modalTitle.style.cssText = `
-      color: var(--primary-color);
-      margin: 0 0 15px 0;
-      font-size: 1.3rem;
-    `;
+            //         const modalTitle = document.createElement("h4");
+            //         modalTitle.style.cssText = `
+            //   color: var(--primary-color);
+            //   margin: 0 0 15px 0;
+            //   font-size: 1.3rem;
+            // `;
 
-            const modalButton = document.createElement("button");
-            modalButton.className = "btn-genz";
-            modalButton.textContent = "Play Again";
-            modalButton.style.cssText = `
-      margin-top: 15px;
-      padding: 8px 20px;
-      font-size: 0.9rem;
-    `;
+            //         const modalButton = document.createElement("button");
+            //         modalButton.className = "btn-genz";
+            //         modalButton.textContent = "Play Again";
+            //         modalButton.style.cssText = `
+            //   margin-top: 15px;
+            //   padding: 8px 20px;
+            //   font-size: 0.9rem;
+            // `;
 
-            modalButton.addEventListener("click", () => {
-                modal.style.opacity = "0";
-                modal.style.visibility = "hidden";
-                modalContent.style.transform = "scale(0.9)";
-                resetGame();
-            });
+            //         modalButton.addEventListener("click", () => {
+            //             modal.style.opacity = "0";
+            //             modal.style.visibility = "hidden";
+            //             modalContent.style.transform = "scale(0.9)";
+            //             resetGame();
+            //         });
 
-            modalContent.appendChild(modalTitle);
-            modalContent.appendChild(modalButton);
-            modal.appendChild(modalContent);
-            document.body.appendChild(modal);
+            //         modalContent.appendChild(modalTitle);
+            //         modalContent.appendChild(modalButton);
+            //         modal.appendChild(modalContent);
+            //         document.body.appendChild(modal);
 
-            let currentPlayer = "X";
-            let gameActive = true;
-            let board = ["", "", "", "", "", "", "", "", ""];
+            //         let currentPlayer = "X";
+            //         let gameActive = true;
+            //         let board = ["", "", "", "", "", "", "", "", ""];
 
-            const winningConditions = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8],
-                [0, 3, 6], [1, 4, 7], [2, 5, 8],
-                [0, 4, 8], [2, 4, 6]
-            ];
+            //         const winningConditions = [
+            //             [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            //             [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            //             [0, 4, 8], [2, 4, 6]
+            //         ];
 
-            function handleCellClick(e) {
-                const clickedCell = e.target;
-                const index = parseInt(clickedCell.getAttribute("data-cell"));
-                if (board[index] !== "" || !gameActive) return;
+            //         function handleCellClick(e) {
+            //             const clickedCell = e.target;
+            //             const index = parseInt(clickedCell.getAttribute("data-cell"));
+            //             if (board[index] !== "" || !gameActive) return;
 
-                board[index] = currentPlayer;
-                clickedCell.textContent = currentPlayer;
-                checkResult();
-            }
+            //             board[index] = currentPlayer;
+            //             clickedCell.textContent = currentPlayer;
+            //             checkResult();
+            //         }
 
-            function checkResult() {
-                for (let [a, b, c] of winningConditions) {
-                    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-                        endGame(`${board[a]} Wins!`, `🎉 Player ${board[a]} Wins!`);
-                        return;
-                    }
-                }
+            //         function checkResult() {
+            //             for (let [a, b, c] of winningConditions) {
+            //                 if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            //                     endGame(`${board[a]} Wins!`, `🎉 Player ${board[a]} Wins!`);
+            //                     return;
+            //                 }
+            //             }
 
-                if (!board.includes("")) {
-                    endGame("It's a Draw!", "🤝 Game Draw! 🤝");
-                    return;
-                }
+            //             if (!board.includes("")) {
+            //                 endGame("It's a Draw!", "🤝 Game Draw! 🤝");
+            //                 return;
+            //             }
 
-                currentPlayer = currentPlayer === "X" ? "O" : "X";
-                status.textContent = `Player ${currentPlayer}'s Turn`;
-            }
+            //             currentPlayer = currentPlayer === "X" ? "O" : "X";
+            //             status.textContent = `Player ${currentPlayer}'s Turn`;
+            //         }
 
-            function endGame(statusText, modalText) {
-                status.textContent = statusText;
-                gameActive = false;
-                modalTitle.textContent = modalText;
-                modal.style.opacity = "1";
-                modal.style.visibility = "visible";
-                setTimeout(() => {
-                    modalContent.style.transform = "scale(1)";
-                }, 50);
-            }
+            //         function endGame(statusText, modalText) {
+            //             status.textContent = statusText;
+            //             gameActive = false;
+            //             modalTitle.textContent = modalText;
+            //             modal.style.opacity = "1";
+            //             modal.style.visibility = "visible";
+            //             setTimeout(() => {
+            //                 modalContent.style.transform = "scale(1)";
+            //             }, 50);
+            //         }
 
-            function resetGame() {
-                currentPlayer = "X";
-                gameActive = true;
-                board = ["", "", "", "", "", "", "", "", ""];
-                status.textContent = `Player ${currentPlayer}'s Turn`;
-                cells.forEach((cell) => (cell.textContent = ""));
-            }
+            //         function resetGame() {
+            //             currentPlayer = "X";
+            //             gameActive = true;
+            //             board = ["", "", "", "", "", "", "", "", ""];
+            //             status.textContent = `Player ${currentPlayer}'s Turn`;
+            //             cells.forEach((cell) => (cell.textContent = ""));
+            //         }
 
-            cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
-            resetBtn.addEventListener("click", resetGame);
+            //         cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
+            //         resetBtn.addEventListener("click", resetGame);
 
 
             // Scroll to Top - Original behavior preserved
-            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-            window.addEventListener("scroll", () => {
-                scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
-            });
-            scrollToTopBtn.addEventListener("click", () => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
+            // const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            // window.addEventListener("scroll", () => {
+            //     scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
+            // });
+            // scrollToTopBtn.addEventListener("click", () => {
+            //     window.scrollTo({ top: 0, behavior: "smooth" });
+            // });
 
             // Project Gallery - Original functionality preserved
             document.querySelectorAll(".clickableImage").forEach((img) => {
