@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hatoon Alsaihati - Software Engineer</title>
+    <title>Hatoon Alsaihati</title>
     <meta name="description"
         content="Portfolio of Hatoon Alsaihati, Software Engineer specializing in web development and chatbot solutions" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -15,10 +15,8 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Add this to your head section for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/logo.jpg" />
 
     <style>
@@ -70,8 +68,6 @@
         /* Navigation bar */
         nav {
             background-color: var(--nav-bg);
-            /* padding: 15px 25px; */
-            /* padding: 8px 20px; */
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
             z-index: 1000;
@@ -94,7 +90,6 @@
             animation: slideDown 0.3s ease-out;
             border-radius: 12px;
             box-sizing: border-box;
-            /* padding: 15px 25px; */
         }
 
         @keyframes slideDown {
@@ -122,9 +117,7 @@
             margin: 0 auto;
             padding: 0px 20px;
             box-sizing: border-box;
-            /* min-height: 60px; */
             min-height: 48px;
-
         }
 
         .navbar-brand-container {
@@ -197,7 +190,6 @@
         .nav-link.active {
             color: var(--primary-color);
             font-weight: 600;
-
         }
 
         /* Dark mode toggle */
@@ -245,12 +237,10 @@
 
         @media (max-width: 992px) {
 
-            /* Ensure navbar stays visible */
             .navbar {
                 position: relative;
             }
 
-            /* Make navbar items stack properly */
             .navbar-collapse {
                 position: absolute;
                 top: 100%;
@@ -267,14 +257,12 @@
                 transition: all 0.3s ease;
             }
 
-            /* Show menu when collapsed */
             .navbar-collapse.show {
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
             }
 
-            /* Style nav items for mobile */
             .navbar-nav {
                 flex-direction: column;
                 width: 100%;
@@ -292,11 +280,6 @@
                 transition: background-color 0.3s;
             }
 
-            /* .nav-link:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-      } */
-
-            /* Adjust dark mode toggle position */
             .dark-mode-toggle {
                 margin: 15px 0 0 0;
                 padding: 10px 15px;
@@ -308,7 +291,6 @@
                 background-color: rgba(0, 0, 0, 0.05);
             }
 
-            /* Fix navbar-toggler positioning */
             .navbar-toggler {
                 position: relative;
                 right: auto;
@@ -380,7 +362,6 @@
             text-align: center;
         }
 
-        /* Target only the skill items */
         .skills-container .list-inline-item {
             margin: 10px;
             background: var(--skill-bg);
@@ -390,10 +371,8 @@
             font-weight: 500;
             transition: background 0.3s, color 0.3s;
             display: inline-block;
-            /* Maintain inline behavior */
         }
 
-        /* Skill group visibility */
         .skill-group {
             display: none;
         }
@@ -407,7 +386,6 @@
         }
 
 
-        /* Dropdown styles to match theme */
         .dropdown-menu {
             background-color: var(--card-bg);
             border: 1px solid var(--cell-border);
@@ -433,8 +411,6 @@
             box-shadow: none !important;
             transition: all 0.3s;
             margin-top: -10px;
-            /* Moves the button up */
-
         }
 
         .dropdown-toggle:hover {
@@ -442,19 +418,16 @@
             color: white !important;
         }
 
-        /* Dropdown divider */
         .dropdown-divider {
             border-color: var(--cell-border);
         }
 
-        /* Dropdown icons */
         .dropdown-item i {
             color: var(--primary-color);
             width: 20px;
             text-align: center;
             margin-right: 8px;
         }
-
 
         footer {
             text-align: center;
@@ -466,7 +439,153 @@
         }
 
         /* Tic-Tac-Toe Game Styles */
+
+        /* // */
+            /* Game Container - Enhanced to match portfolio style */
+    .game-container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--cell-border);
+        transition: all 0.3s ease;
+    }
+
+    /* Board Grid */
+    /* .board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 0 auto;
+    }
+    
+
+    /* Cells *
+    .cell {
+        aspect-ratio: 1/1;
+        background-color: var(--cell-bg);
+        border: 2px solid var(--cell-border);
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    } */
+
+    /* Game Board - Enhanced Sizing */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.cell {
+  aspect-ratio: 1/1;
+  min-width: 80px;
+  min-height: 80px;
+  background-color: var(--cell-bg);
+  border: 2px solid var(--cell-border);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+          color: var(--primary-color);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+    /* .cell:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        background-color: var(--skill-bg);
+    } */
+
+    /* Status Panel */
+    .status-panel {
+        background-color: var(--card-bg);
+        padding: 15px 20px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--cell-border);
+    }
+
+    .status-icon {
+        color: var(--primary-color);
+        animation: pulse 1.5s infinite;
+    }
+
+    .status-text {
+        font-weight: 600;
+        color: var(--text-color);
+    }
+
+    /* Reset Button */
+    .reset-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+    }
+
+    /* .reset-btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    } */
+
+    .reset-icon {
+        transition: transform 0.5s ease;
+    }
+
+    .reset-btn:hover .reset-icon {
+        transform: rotate(-360deg);
+    }
+
+    /* Win/Draw Effects */
+    .cell.winning-cell {
+        animation: bounce 0.5s ease;
+        background-color: var(--skill-bg);
+        box-shadow: 0 0 15px rgba(78, 115, 223, 0.4);
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 576px) {
         .game-container {
+            padding: 20px;
+        }
+        .cell {
+            font-size: 2rem;
+        }
+    }
+        /* // */
+
+        /* .game-container {
             max-width: 500px;
             margin: 40px auto 0;
             background-color: var(--game-bg);
@@ -475,8 +594,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             scroll-margin-top: 70px;
-
-        }
+        } */
 
         .game-title {
             color: var(--primary-color);
@@ -494,13 +612,13 @@
             gap: 30px;
         }
 
-        .board {
+        /* .board {
             display: grid;
             grid-template-columns: repeat(3, 70px);
             grid-gap: 5px;
-        }
+        } */
 
-        .cell {
+        /* .cell {
             width: 70px;
             height: 70px;
             background-color: var(--cell-bg);
@@ -514,7 +632,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
+        } */
 
         .cell:hover {
             transform: translateY(-3px);
@@ -522,7 +640,7 @@
             background-color: var(--skill-bg);
         }
 
-        .status-panel {
+        /* .status-panel {
             background-color: var(--card-bg);
             padding: 15px;
             border-radius: 15px;
@@ -532,9 +650,9 @@
             transition: all 0.3s ease;
             width: 100%;
             max-width: 250px;
-        }
+        } */
 
-        .status-icon {
+        /* .status-icon {
             color: var(--primary-color);
             font-size: 1.2rem;
             margin-right: 8px;
@@ -546,9 +664,9 @@
             font-weight: 600;
             color: var(--text-color);
             vertical-align: middle;
-        }
+        } */
 
-        .reset-btn {
+        /* .reset-btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
@@ -564,7 +682,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
-        }
+        } */
 
         .reset-btn:hover {
             background-color: var(--primary-dark);
@@ -576,14 +694,14 @@
             transform: translateY(0);
         }
 
-        .reset-icon {
+        /* .reset-icon {
             font-size: 1.2rem;
             transition: transform 0.5s ease;
         }
 
         .reset-btn:hover .reset-icon {
             transform: rotate(180deg);
-        }
+        } */
 
         @keyframes pulse {
             0% {
@@ -599,7 +717,6 @@
             }
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .board {
                 grid-template-columns: repeat(3, 60px);
@@ -652,7 +769,6 @@
             color: rgba(255, 255, 255, 0.9) !important;
         }
 
-        /* Scroll to Top Button */
         .scroll-to-top {
             position: fixed;
             bottom: 30px;
@@ -690,7 +806,6 @@
             height: 24px;
         }
 
-        /* Services Section Styles */
         .service-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
@@ -706,7 +821,6 @@
             transform: translateY(-10px);
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero {
                 padding: 80px 20px;
@@ -717,7 +831,6 @@
             }
         }
 
-        /* Project Images */
         .project-images {
             position: relative;
             border-radius: 12px;
@@ -769,7 +882,6 @@
             color: white;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .project-images .row img {
                 height: 80px;
@@ -811,22 +923,17 @@
 
         .navbar-toggler {
             position: relative;
-            /* Change from absolute to relative */
             right: auto;
             top: auto;
             margin-left: auto;
-            /* Push to the right */
             padding: 0.25rem 0.75rem;
             border: none;
             background: transparent;
             z-index: 1050;
             display: flex;
             align-items: center;
-            /* Center vertically */
             justify-content: center;
-            /* Center horizontally */
             height: 100%;
-            /* Take full height of navbar */
         }
 
         body.dark-mode .btn-close {
@@ -1145,12 +1252,12 @@
         </div>
 
         <div class="row g-4">
-            <!-- Project 1 - Enhanced Card -->
+            <!-- Project 1 -->
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
                 <div class="card h-100 border-0 project-card">
                     <div class="project-images position-relative overflow-hidden rounded-top">
                         <img src="img/projects/cpj/cpj.png" class="img-fluid w-100 clickableImage"
-                            style="height: 200px; object-fit: cover;" loading="lazy"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
                             data-images='["img/projects/cpj/cpj.png", "img/projects/cpj/signup.png", "img/projects/cpj/form.png"]'
                             data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
                         <div class="position-absolute bottom-0 start-0 w-100 p-3"
@@ -1180,12 +1287,12 @@
                 </div>
             </div>
 
-            <!-- Project 2 - Enhanced Card -->
+            <!-- Project 2 -->
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
                 <div class="card h-100 border-0 project-card">
                     <div class="project-images position-relative overflow-hidden rounded-top">
                         <img src="img/projects/cafm/dashboard.png" class="img-fluid w-100 clickableImage"
-                            style="height: 200px; object-fit: cover;" loading="lazy"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
                             data-images='["img/projects/cafm/dashboard.png", "img/projects/cafm/abyan1.png", "img/projects/cafm/abyan2.png"]'
                             data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
                         <div class="position-absolute bottom-0 start-0 w-100 p-3"
@@ -1207,66 +1314,248 @@
                             <span class="badge bg-primary bg-opacity-10 text-primary">HTML</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">CSS</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">REST API</span>
-                            <span class="badge bg-primary bg-opacity-10 text-primary">Visual Studio Code</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">IIS</span>
-                              <span class="badge bg-primary bg-opacity-10 text-primary">MailKit</span>
-
-
+                            <span class="badge bg-primary bg-opacity-10 text-primary">SMTP</span>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-            <!-- Project 1 - Enhanced Card -->
+            <!-- Project 3 -->
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
                 <div class="card h-100 border-0 project-card">
                     <div class="project-images position-relative overflow-hidden rounded-top">
                         <img src="img/projects/bayan/iphone/chat1-portrait.png" class="img-fluid w-100 clickableImage"
-                            style="height: 200px; object-fit: cover;" loading="lazy"
-                            data-images='["img/projects/bayan/iphone/chat1-portrait.png"]'
-                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
+                            data-images='["img/projects/bayan/iphone/chat1-portrait.png"]' data-bs-toggle="modal"
+                            data-bs-target="#projectCarouselModal">
                         <div class="position-absolute bottom-0 start-0 w-100 p-3"
                             style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
                             <h5 class="text-white mb-0">Bayan Virtual Assistant</h5>
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="text-muted mb-3">    A WhatsApp chatbot integrated with ERP CAFM, providing 24/7
-              support for tenants and guests. It supports Arabic and English,
-              and responds to user input through keyword recognition. Features
-              include complaint management, feedback collection, guest
-              services, and live chat.</p>
-       <div class="d-flex flex-wrap gap-2">
-  <span class="badge bg-primary bg-opacity-10 text-primary">ManyChat</span>
-  <span class="badge bg-primary bg-opacity-10 text-primary">.NET Core API</span>
-  <span class="badge bg-primary bg-opacity-10 text-primary">C#</span>
-  <span class="badge bg-primary bg-opacity-10 text-primary">MySQL</span>
-  <span class="badge bg-primary bg-opacity-10 text-primary">Twilio</span>
-  <span class="badge bg-primary bg-opacity-10 text-primary">MailKit</span>
-</div>
-
+                        <p class="text-muted mb-3"> A WhatsApp chatbot integrated with ERP CAFM, providing 24/7
+                            support for tenants and guests. It supports Arabic and English,
+                            and responds to user input through keyword recognition. Features
+                            include complaint management, feedback collection, guest
+                            services, and live chat.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">ManyChat</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">.NET Core API</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">C#</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">MySQL</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Twilio</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">MailKit</span>
+                        </div>
                     </div>
                     <div class="card-footer bg-transparent border-0 pt-0">
-                        <!-- <div class="project-links">
-                            <a href="img/projects/cpj/cpj-docs.pdf" class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-file-pdf me-1"></i> Documentation
-                            </a>
-                        </div> -->
-                            
-    <div class="project-links mt-auto pt-2">
-              <button class="btn btn-sm btn-genz me-2 mb-2" disabled>
-                <i class="fab fa-whatsapp me-1"></i> Soon
-              </button>
-            </div>
+                        <div class="project-links mt-auto pt-2">
+                            <button class="btn btn-sm btn-genz me-2 mb-2" disabled>
+                                <i class="fab fa-whatsapp me-1"></i> Soon
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Project 4 -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                <div class="card h-100 border-0 project-card">
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/qrm/iphone/chat1-portrait.png" class="img-fluid w-100 clickableImage"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
+                            data-images='["img/projects/qrm/iphone/chat1-portrait.png"]' data-bs-toggle="modal"
+                            data-bs-target="#projectCarouselModal">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">QRM chatbot</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3"> A WhatsApp chatbot for Qanbar Ready Mix, integrated with ERP and
+                            CRM systems. It automates customer support with features like
+                            instant invoice delivery, balance checks, multilingual support,
+                            and feedback collection.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Twilio</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">.NET Core API</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">C#</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">SQL</span>
 
-        </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pt-0">
+                        <div class="project-links mt-auto pt-2">
+                            <button class="btn btn-sm btn-genz me-2 mb-2" disabled>
+                                <i class="fab fa-whatsapp me-1"></i> Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                <div class="card h-100 border-0 project-card">
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/eid/al-Adha.png" class="img-fluid w-100 clickableImage"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
+                            data-images='["img/projects/eid/al-Adha.png", "img/projects/eid/al-Fitr.png"]'
+                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">Eid al-Fitr & al-Adha Card Generators</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">Created two Eid greeting card tools for Al Ansari Holding:<br />
+                            - Eid al-Adha: Customized per individual subsidiary company.<br />
+                            - Eid al-Fitr: A single, unified card design used across the
+                            entire holding group.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">JavaScript</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">HTML</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">CSS</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pt-0">
+                        <div class="project-links mt-auto pt-2">
+                            <a href="http://alansari.com/Eid/al-Adha/" target="_blank"
+                                class="btn btn-sm btn-genz me-2 mb-2">
+                                <i class="fas fa-star me-1"></i> Al-Adha
+                            </a>
+                            <a href="http://alansari.com/Eid/al-Fitr/" target="_blank"
+                                class="btn btn-sm btn-genz me-2 mb-2">
+                                <i class="fas fa-moon me-1"></i> Al-Fitr
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+                 <!-- Project 6 -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                <div class="card h-100 border-0 project-card">
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/career/forms.png" class="img-fluid w-100 clickableImage"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
+                            data-images='["img/projects/career/forms.png"]'
+                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">Career & Co-op Forms with Automated Reporting</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">Developed bilingual job and coop application forms for Al Ansari
+              Holding's career site to streamline candidate data collection.
+              Created an automated PHP system to generate real-time Excel
+              reports for admins with a single click.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">php</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">HTML</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">CSS</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">mysql</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pt-0">
+                       <div class="project-links mt-auto pt-2">
+              <a href="http://alansari.com/career/" class="btn btn-sm btn-genz me-2 mb-2">
+                <i class="fas fa-link me-1"></i> Job Form
+              </a>
+              <a href="http://alansari.com/career/coop" class="btn btn-sm btn-genz me-2 mb-2">
+                <i class="fas fa-link me-1"></i> Co-op Form
+              </a>
+            </div>
+                    </div>
+                </div>
+
+            </div>
+
+             <!-- Project 7 -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                <div class="card h-100 border-0 project-card">
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/career/forms.png" class="img-fluid w-100 clickableImage"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
+                            data-images='["img/projects/career/forms.png"]'
+                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">Career & Co-op Forms with Automated Reporting</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">Developed bilingual job and coop application forms for Al Ansari
+              Holding's career site to streamline candidate data collection.
+              Created an automated PHP system to generate real-time Excel
+              reports for admins with a single click.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">php</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">HTML</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">CSS</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">mysql</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pt-0">
+                       <div class="project-links mt-auto pt-2">
+              <a href="http://alansari.com/career/" class="btn btn-sm btn-genz me-2 mb-2">
+                <i class="fas fa-link me-1"></i> Job Form
+              </a>
+              <a href="http://alansari.com/career/coop" class="btn btn-sm btn-genz me-2 mb-2">
+                <i class="fas fa-link me-1"></i> Co-op Form
+              </a>
+            </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
+
+    <!-- Game Section -->
+    <section id="game" class="container py-5 my-md-5">
+    <div class="text-center mb-5">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">Let's Play</span>
+        <h2 class="mb-4 animate__animated animate__fadeIn">Tic-Tac-Toe</h2>
+        <p class="text-muted mx-auto" style="max-width: 500px">A classic game with a modern twist. Play against a friend!</p>
+    </div>
+
+    <div class="game-container">
+        <div class="game-content">
+            <!-- Status Panel -->
+            <div class="status-panel mb-4">
+                <i class="fas fa-circle status-icon"></i>
+                <span class="status-text" id="status">Player X's Turn</span>
+            </div>
+
+            <!-- Game Board -->
+            <div class="board" id="board">
+                <div class="cell" data-cell="0"></div>
+                <div class="cell" data-cell="1"></div>
+                <div class="cell" data-cell="2"></div>
+                <div class="cell" data-cell="3"></div>
+                <div class="cell" data-cell="4"></div>
+                <div class="cell" data-cell="5"></div>
+                <div class="cell" data-cell="6"></div>
+                <div class="cell" data-cell="7"></div>
+                <div class="cell" data-cell="8"></div>
+            </div>
+
+            <!-- Reset Button -->
+            <button class="reset-btn mt-4" id="reset">
+                <i class="fas fa-undo reset-icon"></i>
+                <span class="reset-text">Reset Game</span>
+            </button>
+        </div>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="container py-5 my-md-5">
@@ -1293,15 +1582,11 @@
         </div>
     </section>
 
-    <!-- <footer class="text-center py-4">
-        &copy; <span id="current-year"></span> | Designed & Built by HatoonJ
-    </footer>
+
 
     <button id="scrollToTopBtn" class="scroll-to-top">
-        <i class="fa-solid fa-chevron-up"></i>
-    </button> -->
-
-    </div>
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
 
     <!-- Project Modal -->
     <div class="modal fade" id="projectCarouselModal" tabindex="-1">
@@ -1334,8 +1619,8 @@
         // Combined initialization
         document.addEventListener("DOMContentLoaded", () => {
             // Set current year
-            // document.getElementById("current-year").textContent =
-            //     new Date().getFullYear();
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
 
             // Dark Mode - Original logic made more concise
             const darkModeToggle = document.getElementById("darkModeToggle");
@@ -1489,13 +1774,13 @@
 
 
             // Scroll to Top - Original behavior preserved
-            // const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-            // window.addEventListener("scroll", () => {
-            //     scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
-            // });
-            // scrollToTopBtn.addEventListener("click", () => {
-            //     window.scrollTo({ top: 0, behavior: "smooth" });
-            // });
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            window.addEventListener("scroll", () => {
+                scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
+            });
+            scrollToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
 
             // Project Gallery - Original functionality preserved
             document.querySelectorAll(".clickableImage").forEach((img) => {
@@ -1526,6 +1811,85 @@
             });
         });
     </script>
+    <script>
+    // Game Logic (Integrated with new UI)
+    document.addEventListener("DOMContentLoaded", () => {
+        const cells = document.querySelectorAll(".cell");
+        const status = document.getElementById("status");
+        const resetBtn = document.getElementById("reset");
+        
+        let currentPlayer = "X";
+        let gameActive = true;
+        let board = ["", "", "", "", "", "", "", "", ""];
+        
+        const winningConditions = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+            [0, 4, 8], [2, 4, 6]             // diagonals
+        ];
+        
+        function handleCellClick(e) {
+            const clickedCell = e.target;
+            const index = parseInt(clickedCell.getAttribute("data-cell"));
+            
+            if (board[index] !== "" || !gameActive) return;
+            
+            board[index] = currentPlayer;
+            clickedCell.textContent = currentPlayer;
+            clickedCell.classList.add(`player-${currentPlayer}`);
+            checkResult();
+        }
+        
+        function checkResult() {
+            let roundWon = false;
+            
+            for (let i = 0; i < winningConditions.length; i++) {
+                const [a, b, c] = winningConditions[i];
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    roundWon = true;
+                    // Highlight winning cells
+                    document.querySelector(`.cell[data-cell="${a}"]`).classList.add("winning-cell");
+                    document.querySelector(`.cell[data-cell="${b}"]`).classList.add("winning-cell");
+                    document.querySelector(`.cell[data-cell="${c}"]`).classList.add("winning-cell");
+                    break;
+                }
+            }
+            
+            if (roundWon) {
+                status.innerHTML = `<i class="fas fa-trophy status-icon"></i><span class="status-text">Player ${currentPlayer} Wins!</span>`;
+                gameActive = false;
+                return;
+            }
+            
+            if (!board.includes("")) {
+                status.innerHTML = `<i class="fas fa-handshake status-icon"></i><span class="status-text">Game Draw!</span>`;
+                gameActive = false;
+                return;
+            }
+            
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            status.innerHTML = `<i class="fas fa-circle status-icon"></i><span class="status-text">Player ${currentPlayer}'s Turn</span>`;
+        }
+        
+        function resetGame() {
+            currentPlayer = "X";
+            gameActive = true;
+            board = ["", "", "", "", "", "", "", "", ""];
+            status.innerHTML = `<i class="fas fa-circle status-icon"></i><span class="status-text">Player ${currentPlayer}'s Turn</span>`;
+            
+            cells.forEach(cell => {
+                cell.textContent = "";
+                cell.classList.remove("winning-cell", "player-X", "player-O");
+            });
+        }
+        
+        cells.forEach(cell => cell.addEventListener("click", handleCellClick));
+        resetBtn.addEventListener("click", resetGame);
+    });
+</script>
 </body>
 
+    <footer class="text-center">
+      &copy; <span id="current-year"></span> | Designed & Built by HatoonJ
+    </footer>
 </html>
