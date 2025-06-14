@@ -1033,7 +1033,7 @@
             </div>
 
             <!-- About Section (Right Column) -->
-            <div class="col-lg-6 ps-lg-5">
+            <div  id="about" class="col-lg-6 ps-lg-5">
                 <div class="about-section p-4 p-md-5 h-100 d-flex flex-column justify-content-center"
                     style="background: var(--card-bg); border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
 
@@ -1538,7 +1538,7 @@
         <div class="game-content">
             <!-- Status Panel -->
             <div class="status-panel mb-4">
-                <i class="fas fa-circle status-icon"></i>
+                <!-- <i class="fas fa-circle status-icon"></i> -->
                 <span class="status-text" id="status">Player X's Turn</span>
             </div>
 
@@ -1658,172 +1658,8 @@
                     : "none";
             });
 
-            // Tic-Tac-Toe - Original game logic preserved
-            //         const cells = document.querySelectorAll(".cell");
-            //         const status = document.getElementById("status");
-            //         const resetBtn = document.getElementById("reset");
-
-            //         const modal = document.createElement("div");
-            //         modal.className = "game-modal";
-            //         modal.style.cssText = `
-            //   position: fixed;
-            //   top: 0;
-            //   left: 0;
-            //   width: 100%;
-            //   height: 100%;
-            //   background-color: rgba(0,0,0,0.5);
-            //   display: flex;
-            //   justify-content: center;
-            //   align-items: center;
-            //   z-index: 2000;
-            //   opacity: 0;
-            //   visibility: hidden;
-            //   transition: all 0.3s ease;
-            // `;
-
-            //         const modalContent = document.createElement("div");
-            //         modalContent.className = "modal-content";
-            //         modalContent.style.cssText = `
-            //   background-color: var(--card-bg);
-            //   padding: 20px;
-            //   border-radius: 12px;
-            //   text-align: center;
-            //   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            //   transform: scale(0.9);
-            //   transition: all 0.3s ease;
-            //   max-width: 300px;
-            //   width: 80%;
-            // `;
-
-            //         const modalTitle = document.createElement("h4");
-            //         modalTitle.style.cssText = `
-            //   color: var(--primary-color);
-            //   margin: 0 0 15px 0;
-            //   font-size: 1.3rem;
-            // `;
-
-            //         const modalButton = document.createElement("button");
-            //         modalButton.className = "btn-genz";
-            //         modalButton.textContent = "Play Again";
-            //         modalButton.style.cssText = `
-            //   margin-top: 15px;
-            //   padding: 8px 20px;
-            //   font-size: 0.9rem;
-            // `;
-
-            //         modalButton.addEventListener("click", () => {
-            //             modal.style.opacity = "0";
-            //             modal.style.visibility = "hidden";
-            //             modalContent.style.transform = "scale(0.9)";
-            //             resetGame();
-            //         });
-
-            //         modalContent.appendChild(modalTitle);
-            //         modalContent.appendChild(modalButton);
-            //         modal.appendChild(modalContent);
-            //         document.body.appendChild(modal);
-
-            //         let currentPlayer = "X";
-            //         let gameActive = true;
-            //         let board = ["", "", "", "", "", "", "", "", ""];
-
-            //         const winningConditions = [
-            //             [0, 1, 2], [3, 4, 5], [6, 7, 8],
-            //             [0, 3, 6], [1, 4, 7], [2, 5, 8],
-            //             [0, 4, 8], [2, 4, 6]
-            //         ];
-
-            //         function handleCellClick(e) {
-            //             const clickedCell = e.target;
-            //             const index = parseInt(clickedCell.getAttribute("data-cell"));
-            //             if (board[index] !== "" || !gameActive) return;
-
-            //             board[index] = currentPlayer;
-            //             clickedCell.textContent = currentPlayer;
-            //             checkResult();
-            //         }
-
-            //         function checkResult() {
-            //             for (let [a, b, c] of winningConditions) {
-            //                 if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-            //                     endGame(`${board[a]} Wins!`, `🎉 Player ${board[a]} Wins!`);
-            //                     return;
-            //                 }
-            //             }
-
-            //             if (!board.includes("")) {
-            //                 endGame("It's a Draw!", "🤝 Game Draw! 🤝");
-            //                 return;
-            //             }
-
-            //             currentPlayer = currentPlayer === "X" ? "O" : "X";
-            //             status.textContent = `Player ${currentPlayer}'s Turn`;
-            //         }
-
-            //         function endGame(statusText, modalText) {
-            //             status.textContent = statusText;
-            //             gameActive = false;
-            //             modalTitle.textContent = modalText;
-            //             modal.style.opacity = "1";
-            //             modal.style.visibility = "visible";
-            //             setTimeout(() => {
-            //                 modalContent.style.transform = "scale(1)";
-            //             }, 50);
-            //         }
-
-            //         function resetGame() {
-            //             currentPlayer = "X";
-            //             gameActive = true;
-            //             board = ["", "", "", "", "", "", "", "", ""];
-            //             status.textContent = `Player ${currentPlayer}'s Turn`;
-            //             cells.forEach((cell) => (cell.textContent = ""));
-            //         }
-
-            //         cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
-            //         resetBtn.addEventListener("click", resetGame);
-
-
-            // Scroll to Top - Original behavior preserved
-            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-            window.addEventListener("scroll", () => {
-                scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
-            });
-            scrollToTopBtn.addEventListener("click", () => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-
-            // Project Gallery - Original functionality preserved
-            document.querySelectorAll(".clickableImage").forEach((img) => {
-                img.addEventListener("click", function () {
-                    const images = JSON.parse(this.dataset.images);
-                    const indicators = document.getElementById("carouselIndicators");
-                    const inner = document.getElementById("carouselInner");
-
-                    indicators.innerHTML = inner.innerHTML = "";
-
-                    images.forEach((src, i) => {
-                        if (images.length > 1) {
-                            const indicator = document.createElement("button");
-                            indicator.type = "button";
-                            indicator.dataset.bsTarget = "#dynamicCarousel";
-                            indicator.dataset.bsSlideTo = i;
-                            indicator.className = i === 0 ? "active" : "";
-                            if (i === 0) indicator.setAttribute("aria-current", "true");
-                            indicators.appendChild(indicator);
-                        }
-
-                        const item = document.createElement("div");
-                        item.className = `carousel-item ${i === 0 ? "active" : ""}`;
-                        item.innerHTML = `<img src="${src}" class="d-block w-100">`;
-                        inner.appendChild(item);
-                    });
-                });
-            });
-        });
-    </script>
-    <script>
-    // Game Logic (Integrated with new UI)
-    document.addEventListener("DOMContentLoaded", () => {
+                // Game Logic (Integrated with new UI)
+   
         const cells = document.querySelectorAll(".cell");
         const status = document.getElementById("status");
         const resetBtn = document.getElementById("reset");
@@ -1866,26 +1702,26 @@
             }
             
             if (roundWon) {
-                status.innerHTML = `<i class="fas fa-trophy status-icon"></i><span class="status-text">Player ${currentPlayer} Wins!</span>`;
+                status.innerHTML = `<i class="fas fa-trophy status-icon"></i><span class="status-text">  Player ${currentPlayer} Wins!</span>`;
                 gameActive = false;
                 return;
             }
             
             if (!board.includes("")) {
-                status.innerHTML = `<i class="fas fa-handshake status-icon"></i><span class="status-text">Game Draw!</span>`;
+                status.innerHTML = `<i class="fas fa-handshake status-icon"></i><span class="status-text">  Game Draw!</span>`;
                 gameActive = false;
                 return;
             }
             
             currentPlayer = currentPlayer === "X" ? "O" : "X";
-            status.innerHTML = `<i class="fas fa-circle status-icon"></i><span class="status-text">Player ${currentPlayer}'s Turn</span>`;
+            status.innerHTML = `<i class="fas fa-circle status-icon"></i><span class="status-text">  Player ${currentPlayer}'s Turn</span>`;
         }
         
         function resetGame() {
             currentPlayer = "X";
             gameActive = true;
             board = ["", "", "", "", "", "", "", "", ""];
-            status.innerHTML = `<i class="fas fa-circle status-icon"></i><span class="status-text">Player ${currentPlayer}'s Turn</span>`;
+            status.innerHTML = `<i class="fas fa-circle status-icon"></i><span class="status-text">  Player ${currentPlayer}'s Turn</span>`;
             
             cells.forEach(cell => {
                 cell.textContent = "";
@@ -1895,10 +1731,46 @@
         
         cells.forEach(cell => cell.addEventListener("click", handleCellClick));
         resetBtn.addEventListener("click", resetGame);
-    });
-</script>
+    
 
+            // Scroll to Top - Original behavior preserved
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            window.addEventListener("scroll", () => {
+                scrollToTopBtn.classList.toggle("visible", window.scrollY > 300);
+            });
+            scrollToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
 
+            // Project Gallery - Original functionality preserved
+            document.querySelectorAll(".clickableImage").forEach((img) => {
+                img.addEventListener("click", function () {
+                    const images = JSON.parse(this.dataset.images);
+                    const indicators = document.getElementById("carouselIndicators");
+                    const inner = document.getElementById("carouselInner");
+
+                    indicators.innerHTML = inner.innerHTML = "";
+
+                    images.forEach((src, i) => {
+                        if (images.length > 1) {
+                            const indicator = document.createElement("button");
+                            indicator.type = "button";
+                            indicator.dataset.bsTarget = "#dynamicCarousel";
+                            indicator.dataset.bsSlideTo = i;
+                            indicator.className = i === 0 ? "active" : "";
+                            if (i === 0) indicator.setAttribute("aria-current", "true");
+                            indicators.appendChild(indicator);
+                        }
+
+                        const item = document.createElement("div");
+                        item.className = `carousel-item ${i === 0 ? "active" : ""}`;
+                        item.innerHTML = `<img src="${src}" class="d-block w-100">`;
+                        inner.appendChild(item);
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 
