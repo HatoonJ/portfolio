@@ -939,6 +939,13 @@
         body.dark-mode .btn-close {
             filter: invert(1);
         }
+
+        /* will show if one img the arrow fix */
+        .carousel-item img {
+  max-height: 80vh;
+  object-fit: contain;
+}
+
     </style>
 </head>
 
@@ -1613,6 +1620,9 @@
         </div>
     </div>
 
+        <footer class="text-center">
+      &copy; <span id="current-year"></span> | Designed & Built by HatoonJ
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -1887,9 +1897,9 @@
         resetBtn.addEventListener("click", resetGame);
     });
 </script>
+
+
 </body>
 
-    <footer class="text-center">
-      &copy; <span id="current-year"></span> | Designed & Built by HatoonJ
-    </footer>
+
 </html>
