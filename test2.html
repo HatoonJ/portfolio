@@ -41,13 +41,13 @@
         .dark-mode {
             --bg-color: #1a1d24;
             --text-color: #e0e3eb;
-            --primary-color: #4cd137; /* green instead of blue --primary-color: #4cd137;*/
-            --primary-dark: #3aa62d;
+            /* --primary-color: #4cd137; green instead of blue --primary-color: #4cd137; */
+            /* --primary-dark: #3aa62d; */
             --card-bg: #252a33;
             --nav-bg: #1a1d24;
             --hero-bg: linear-gradient(135deg, #2c3e50 0%, #1a1d24 100%);
             --skill-bg: #2f3640;
-            --skill-text: #4cd137;
+            /* --skill-text: #4cd137; */
             --footer-border: #2f3640;
             --footer-text: #aaa;
             --cell-bg: #2f3640;
@@ -55,6 +55,11 @@
             --game-bg: #252a33;
             --header-text: #e0e3eb;
         }
+        .dark-mode {
+    --primary-color: #4e73df; /* blue instead of green */
+    --primary-dark: #2e59d9; /* blue dark shade */
+    --skill-text: #4e73df; /* blue for skill tags */
+}
 
         body {
             font-family: "Poppins", sans-serif;
@@ -829,10 +834,7 @@
 }
 
 
-.dark-mode .badge.bg-primary {
-    background-color: rgba(76, 209, 55, 0.1) !important; /* light green background */
-    color: #4cd137 !important; /* green text */
-}
+
 
 
     </style>
@@ -885,7 +887,9 @@
 
 
     <!-- Enhanced Hero + About Section -->
-    <section class="container py-5 my-md-5">
+    <!-- <section class="container py-5 my-md-5"> -->
+        <section class="container py-5 my-md-5 mt-5 mt-md-5">
+
         <div class="row align-items-center g-4 g-lg-5">
             <!-- Hero Section (Left Column) -->
             <div class="col-lg-6 pe-lg-5">
@@ -1159,17 +1163,24 @@
                             data-bs-target="#projectCarouselModal">
                         <div class="position-absolute bottom-0 start-0 w-100 p-3"
                             style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                            <h5 class="text-white mb-0">Automated Monthly CAFM Reports</h5>
+                            <h5 class="text-white mb-0">Automated Tenant Contracts Reports</h5>
                         </div>
                     </div>
-                    <div class="card-body">
-                      <p class="text-muted mb-3">Automated monthly contract status reports sent via email, including Excel attachments for ended and expiring contracts, with tabular HTML summaries embedded per region and unit type.</p>
-                        <div class="d-flex flex-wrap gap-2">
+                    <div class="card-body">    
+                    <p class="text-muted mb-3">
+                        Automated monthly contract reports sent to different recipients via five separate emails per region and unit type, each including Excel attachments for ended and ending contracts, with embedded HTML tables summarizing their status.
+                    </p>
+                      <div class="d-flex flex-wrap gap-2">
                             <span class="badge bg-primary bg-opacity-10 text-primary">PHP</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">MySQL</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">Excel</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">SMTP</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">Automation</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">HTML</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">CSS</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">JavaScript</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">PhpSpreadsheet</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Reporting</span>
                         </div>
                     </div>
                     <!-- <div class="card-footer bg-transparent border-0 pt-0">
@@ -1206,7 +1217,10 @@
                             <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">C#</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">SQL</span>
-
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Entity Framework</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">SMTP</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">VCF</span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary">Azure Microservice</span>
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-0 pt-0">
@@ -1626,32 +1640,73 @@
             });
 
             // Project Gallery - Original functionality preserved
-            document.querySelectorAll(".clickableImage").forEach((img) => {
-                img.addEventListener("click", function () {
-                    const images = JSON.parse(this.dataset.images);
-                    const indicators = document.getElementById("carouselIndicators");
-                    const inner = document.getElementById("carouselInner");
+            // document.querySelectorAll(".clickableImage").forEach((img) => {
+            //     img.addEventListener("click", function () {
+            //         const images = JSON.parse(this.dataset.images);
+            //         const indicators = document.getElementById("carouselIndicators");
+            //         const inner = document.getElementById("carouselInner");
 
-                    indicators.innerHTML = inner.innerHTML = "";
+            //         indicators.innerHTML = inner.innerHTML = "";
 
-                    images.forEach((src, i) => {
-                        if (images.length > 1) {
-                            const indicator = document.createElement("button");
-                            indicator.type = "button";
-                            indicator.dataset.bsTarget = "#dynamicCarousel";
-                            indicator.dataset.bsSlideTo = i;
-                            indicator.className = i === 0 ? "active" : "";
-                            if (i === 0) indicator.setAttribute("aria-current", "true");
-                            indicators.appendChild(indicator);
-                        }
+            //         images.forEach((src, i) => {
+            //             if (images.length > 1) {
+            //                 const indicator = document.createElement("button");
+            //                 indicator.type = "button";
+            //                 indicator.dataset.bsTarget = "#dynamicCarousel";
+            //                 indicator.dataset.bsSlideTo = i;
+            //                 indicator.className = i === 0 ? "active" : "";
+            //                 if (i === 0) indicator.setAttribute("aria-current", "true");
+            //                 indicators.appendChild(indicator);
+            //             }
 
-                        const item = document.createElement("div");
-                        item.className = `carousel-item ${i === 0 ? "active" : ""}`;
-                        item.innerHTML = `<img src="${src}" class="d-block w-100">`;
-                        inner.appendChild(item);
-                    });
-                });
-            });
+            //             const item = document.createElement("div");
+            //             item.className = `carousel-item ${i === 0 ? "active" : ""}`;
+            //             item.innerHTML = `<img src="${src}" class="d-block w-100">`;
+            //             inner.appendChild(item);
+            //         });
+            //     });
+            // });
+
+            //
+            // Project Gallery - Original functionality preserved
+document.querySelectorAll(".clickableImage").forEach((img) => {
+    img.addEventListener("click", function () {
+        const images = JSON.parse(this.dataset.images);
+        const indicators = document.getElementById("carouselIndicators");
+        const inner = document.getElementById("carouselInner");
+        const prev = document.querySelector("#dynamicCarousel .carousel-control-prev");
+        const next = document.querySelector("#dynamicCarousel .carousel-control-next");
+
+        indicators.innerHTML = inner.innerHTML = "";
+
+        images.forEach((src, i) => {
+            if (images.length > 1) {
+                const indicator = document.createElement("button");
+                indicator.type = "button";
+                indicator.dataset.bsTarget = "#dynamicCarousel";
+                indicator.dataset.bsSlideTo = i;
+                indicator.className = i === 0 ? "active" : "";
+                if (i === 0) indicator.setAttribute("aria-current", "true");
+                indicators.appendChild(indicator);
+            }
+
+            const item = document.createElement("div");
+            item.className = `carousel-item ${i === 0 ? "active" : ""}`;
+            item.innerHTML = `<img src="${src}" class="d-block w-100">`;
+            inner.appendChild(item);
+        });
+
+        // Hide arrows if only one image
+        if (images.length <= 1) {
+            prev.style.display = "none";
+            next.style.display = "none";
+        } else {
+            prev.style.display = "flex"; // or "block" depending on your CSS
+            next.style.display = "flex";
+        }
+    });
+});
+
         });
     </script>
 </body>
