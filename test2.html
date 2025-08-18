@@ -41,7 +41,7 @@
         .dark-mode {
             --bg-color: #1a1d24;
             --text-color: #e0e3eb;
-            --primary-color: #4cd137;
+            --primary-color: #4cd137; /* green instead of blue --primary-color: #4cd137;*/
             --primary-dark: #3aa62d;
             --card-bg: #252a33;
             --nav-bg: #1a1d24;
@@ -453,31 +453,6 @@
         transition: all 0.3s ease;
     }
 
-    /* Board Grid */
-    /* .board {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin: 0 auto;
-    }
-    
-
-    /* Cells *
-    .cell {
-        aspect-ratio: 1/1;
-        background-color: var(--cell-bg);
-        border: 2px solid var(--cell-border);
-        border-radius: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        cursor: pointer;
-        transition: all 0.2s ease;
-    } */
-
     /* Game Board - Enhanced Sizing */
 .board {
   display: grid;
@@ -506,11 +481,6 @@
   transition: all 0.2s ease;
 }
 
-    /* .cell:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        background-color: var(--skill-bg);
-    } */
 
     /* Status Panel */
     .status-panel {
@@ -549,12 +519,6 @@
         transition: all 0.3s ease;
     }
 
-    /* .reset-btn:hover {
-        background-color: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    } */
-
     .reset-icon {
         transition: transform 0.5s ease;
     }
@@ -583,18 +547,6 @@
             font-size: 2rem;
         }
     }
-        /* // */
-
-        /* .game-container {
-            max-width: 500px;
-            margin: 40px auto 0;
-            background-color: var(--game-bg);
-            padding: 20px 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            scroll-margin-top: 70px;
-        } */
 
         .game-title {
             color: var(--primary-color);
@@ -612,77 +564,12 @@
             gap: 30px;
         }
 
-        /* .board {
-            display: grid;
-            grid-template-columns: repeat(3, 70px);
-            grid-gap: 5px;
-        } */
-
-        /* .cell {
-            width: 70px;
-            height: 70px;
-            background-color: var(--cell-bg);
-            border: 2px solid var(--cell-border);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        } */
-
         .cell:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
             background-color: var(--skill-bg);
         }
 
-        /* .status-panel {
-            background-color: var(--card-bg);
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--cell-border);
-            transition: all 0.3s ease;
-            width: 100%;
-            max-width: 250px;
-        } */
-
-        /* .status-icon {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-right: 8px;
-            vertical-align: middle;
-            animation: pulse 2s infinite;
-        }
-
-        .status-text {
-            font-weight: 600;
-            color: var(--text-color);
-            vertical-align: middle;
-        } */
-
-        /* .reset-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        } */
 
         .reset-btn:hover {
             background-color: var(--primary-dark);
@@ -693,15 +580,6 @@
         .reset-btn:active {
             transform: translateY(0);
         }
-
-        /* .reset-icon {
-            font-size: 1.2rem;
-            transition: transform 0.5s ease;
-        }
-
-        .reset-btn:hover .reset-icon {
-            transform: rotate(180deg);
-        } */
 
         @keyframes pulse {
             0% {
@@ -946,6 +824,17 @@
   object-fit: contain;
 }
 
+.dark-mode .text-muted {
+    color: #e0e3eb !important;
+}
+
+
+.dark-mode .badge.bg-primary {
+    background-color: rgba(76, 209, 55, 0.1) !important; /* light green background */
+    color: #4cd137 !important; /* green text */
+}
+
+
     </style>
 </head>
 
@@ -1039,6 +928,7 @@
 
                     <div class="mb-4">
                         <span class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2">About Me</span>
+                        
                         <h2 class="mb-3">Full-stack Developer & Chatbot Specialist</h2>
                         <p class="mb-4 text-muted">
                             I create seamless digital experiences from backend APIs to interactive frontends,
@@ -1263,9 +1153,9 @@
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
                 <div class="card h-100 border-0 project-card">
                     <div class="project-images position-relative overflow-hidden rounded-top">
-                        <img src="img/projects/cafm/monthly-report.png" class="img-fluid w-100 clickableImage"
+                        <img src="img/projects/abyan contract/contract_status_report_1.png" class="img-fluid w-100 clickableImage"
                             style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
-                            data-images='["img/projects/cafm/monthly-report.png"]' data-bs-toggle="modal"
+                            data-images='["img/projects/abyan contract/contract_status_report_1.png","img/projects/abyan contract/contract_status_report_2.png","img/projects/abyan contract/contract_status_report_3.png"]' data-bs-toggle="modal"
                             data-bs-target="#projectCarouselModal">
                         <div class="position-absolute bottom-0 start-0 w-100 p-3"
                             style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
