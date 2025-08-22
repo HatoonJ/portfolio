@@ -608,21 +608,22 @@ footer {
     height: 100%;
 }
 
-/* Mobile-specific centering fix */
+/* Prevent zoom on mobile */
 @media (max-width: 576px) {
     .cell {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        font-size: 2rem !important; /* Ensure font size is large enough */
+        touch-action: manipulation; /* Prevent double-tap zoom */
     }
-
-    .cell-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    
+    /* Fix for iOS Safari to prevent zoom */
+    @supports (-webkit-touch-callout: none) {
+        .cell {
+            font-size: 16px !important; /* iOS needs at least 16px to prevent zoom */
+        }
     }
 }
+
+/* Mobile-specific centering fix - UPDATED */
 @media (max-width: 576px) {
     .board {
         display: grid;
@@ -639,12 +640,12 @@ footer {
         position: relative;   /* Needed for absolute positioning */
         min-width: unset;
         min-height: unset;
-        font-size: 2rem;
+        font-size: 16px; /* Set to at least 16px to prevent zoom */
+        touch-action: manipulation; /* Prevent zoom on touch */
     }
 
-    /* Create a centered content area */
-    .cell::before {
-        content: '';
+    /* Center content using flexbox */
+    .cell-content {
         position: absolute;
         top: 0;
         left: 0;
@@ -653,11 +654,17 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 2rem; /* Set the actual display size here */
     }
 
     .game-container {
         padding: 20px;
     }
+}
+
+/* Additional viewport fix to prevent zoom */
+meta[name="viewport"] {
+    content: width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no;
 }
 
 h1,

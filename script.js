@@ -42,20 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
         [0, 4, 8], [2, 4, 6]             // diagonals
     ];
 
-    // Function to ensure content is centered on mobile
-    function updateCellContentCentering() {
-        document.querySelectorAll('.cell').forEach(cell => {
-            // If the cell has content but no span wrapper, add one
-            if (cell.textContent && !cell.querySelector('.cell-content')) {
-                const content = cell.textContent;
-                cell.textContent = '';
-                const span = document.createElement('span');
-                span.className = 'cell-content';
-                span.textContent = content;
-                cell.appendChild(span);
-            }
-        });
-    }
+  // Function to ensure content is centered on mobile
+function updateCellContentCentering() {
+    document.querySelectorAll('.cell').forEach(cell => {
+        // If the cell has content but no span wrapper, add one
+        if (cell.textContent && !cell.querySelector('.cell-content')) {
+            const content = cell.textContent;
+            cell.textContent = '';
+            const span = document.createElement('span');
+            span.className = 'cell-content';
+            span.textContent = content;
+            cell.appendChild(span);
+        }
+        // If the cell is empty, remove any existing span
+        else if (!cell.textContent && cell.querySelector('.cell-content')) {
+            cell.querySelector('.cell-content').remove();
+        }
+    });
+}
 
     function handleCellClick(e) {
         const clickedCell = e.target;
