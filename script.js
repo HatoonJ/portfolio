@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("current-year").textContent =
         new Date().getFullYear();
 
-    // Dark mood    
+    // Dark mode    
     const darkModeToggle = document.getElementById("darkModeToggle");
     const body = document.body;
 
@@ -42,6 +42,21 @@ document.addEventListener("DOMContentLoaded", () => {
         [0, 4, 8], [2, 4, 6]             // diagonals
     ];
 
+    // Function to ensure content is centered on mobile
+    function updateCellContentCentering() {
+        document.querySelectorAll('.cell').forEach(cell => {
+            // If the cell has content but no span wrapper, add one
+            if (cell.textContent && !cell.querySelector('.cell-content')) {
+                const content = cell.textContent;
+                cell.textContent = '';
+                const span = document.createElement('span');
+                span.className = 'cell-content';
+                span.textContent = content;
+                cell.appendChild(span);
+            }
+        });
+    }
+
     function handleCellClick(e) {
         const clickedCell = e.target;
         const index = parseInt(clickedCell.getAttribute("data-cell"));
@@ -51,6 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
         board[index] = currentPlayer;
         clickedCell.textContent = currentPlayer;
         clickedCell.classList.add(`player-${currentPlayer}`);
+        
+        // Ensure content is centered (mobile fix)
+        updateCellContentCentering();
+        
         checkResult();
     }
 
@@ -92,9 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
         status.innerHTML = `<i class="fas fa-circle status-icon"></i><span class="status-text">  Player ${currentPlayer}'s Turn</span>`;
 
         cells.forEach(cell => {
-        cell.textContent = "";
-        cell.className = "cell";
+            cell.textContent = "";
+            cell.className = "cell";
         });
+        
+        // Ensure content is centered (mobile fix)
+        updateCellContentCentering();
     }
 
     cells.forEach(cell => cell.addEventListener("click", handleCellClick));
@@ -148,4 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Initial call to ensure any existing content is centered
+    updateCellContentCentering();
 });
