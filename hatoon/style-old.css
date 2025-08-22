@@ -280,15 +280,6 @@ nav.sticky {
     }
 }
 
-/* .hero {
-    padding: 100px 20px;
-    text-align: center;
-    background: var(--hero-bg);
-    border-radius: 20px;
-    color: var(--header-text);
-    margin-bottom: 30px;
-    transition: background 0.3s;
-} */
 .hero {
     padding: 100px 20px;
     text-align: center;
@@ -297,10 +288,6 @@ nav.sticky {
     color: var(--header-text);
     margin-bottom: 30px;
     transition: background 0.3s;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .section {
@@ -682,33 +669,8 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    /* .hero {
+    .hero {
         padding: 80px 20px;
-    } */
-        .hero {
-        min-height: 600px; /* Increased height for mobile */
-        padding: 40px 20px;
-        margin-top: 40px;
-        text-align: center;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem !important;
-        margin-top: 50px;
-        margin-bottom: 20px;
-    }
-    
-    .hero p {
-        font-size: 1.25rem !important;
-        margin-bottom: 30px;
-    }
-    
-    /* Ensure content is centered vertically */
-    .hero > .position-relative {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
     }
 
     .section {

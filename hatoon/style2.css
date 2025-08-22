@@ -280,15 +280,7 @@ nav.sticky {
     }
 }
 
-/* .hero {
-    padding: 100px 20px;
-    text-align: center;
-    background: var(--hero-bg);
-    border-radius: 20px;
-    color: var(--header-text);
-    margin-bottom: 30px;
-    transition: background 0.3s;
-} */
+/* Hero Section Improvements for Mobile */
 .hero {
     padding: 100px 20px;
     text-align: center;
@@ -301,6 +293,55 @@ nav.sticky {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+/* Adjust hero content positioning for mobile */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 500px; /* Increased height for mobile */
+        padding: 40px 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem !important;
+        margin-bottom: 20px;
+    }
+    
+    .hero p {
+        font-size: 1.1rem !important;
+        margin-bottom: 30px;
+    }
+    
+    /* Ensure content is centered vertically */
+    .hero > .position-relative {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 576px) {
+    .hero {
+        min-height: 450px;
+        padding: 30px 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .hero p {
+        font-size: 1rem !important;
+    }
+    
+    .hero .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 .section {
@@ -682,33 +723,8 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    /* .hero {
+    .hero {
         padding: 80px 20px;
-    } */
-        .hero {
-        min-height: 600px; /* Increased height for mobile */
-        padding: 40px 20px;
-        margin-top: 40px;
-        text-align: center;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem !important;
-        margin-top: 50px;
-        margin-bottom: 20px;
-    }
-    
-    .hero p {
-        font-size: 1.25rem !important;
-        margin-bottom: 30px;
-    }
-    
-    /* Ensure content is centered vertically */
-    .hero > .position-relative {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
     }
 
     .section {
@@ -833,4 +849,41 @@ body.dark-mode .btn-close {
 
 .dark-mode .text-muted {
     color: #e0e3eb !important;
+}
+
+/* Fix for the overall layout on mobile */
+@media (max-width: 768px) {
+    /* Adjust container spacing */
+    .container.py-5.my-md-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    /* Fix the about section alignment */
+    #about.ps-lg-5 {
+        padding-left: 0 !important;
+        margin-top: 20px;
+    }
+    
+    /* Ensure proper spacing between sections */
+    section.container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+/* Fix for the navigation bar on mobile */
+@media (max-width: 992px) {
+    nav.sticky {
+        position: relative;
+        top: 0;
+        transform: none;
+        margin: 0 auto 20px auto;
+        width: calc(100% - 40px);
+    }
+    
+    /* Ensure navbar doesn't overlap content */
+    body {
+        padding-top: 0 !important;
+    }
 }

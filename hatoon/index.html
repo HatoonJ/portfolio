@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <link rel="icon" type="image/x-icon" href="../img/logo.jpg" />
+
+      <script>
+    (function() {
+      const isDark = localStorage.getItem("dark-mode") === "true";
+      if (isDark) {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+  
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -73,7 +83,7 @@
             <!-- Hero Section (Left Column) -->
             <div class="col-lg-6 pe-lg-5">
                 <div class="hero p-4 p-md-5 position-relative overflow-hidden"
-                    style="background: var(--hero-bg); border-radius: 20px; min-height: 400px;">
+                    style="background: var(--hero-bg); border-radius: 20px;">
 
                     <!-- Decorative elements -->
                     <div class="position-absolute top-0 end-0 w-100 h-100 overflow-hidden">
