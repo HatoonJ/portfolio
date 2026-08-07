@@ -48,6 +48,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#project">Projects</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievement">World Record</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#game">Game</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -86,6 +89,12 @@
                     <div class="position-relative" style="z-index: 2;">
                         <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Hey, I'm Hatoon 👩‍💻
                         </h1>
+                        <!-- In the Hero Section (Left Column) - after the h1 -->
+                        <div class="mb-3">
+                            <span class="badge bg-warning text-dark px-3 py-2 animate__animated animate__fadeIn">
+                                <i class="fas fa-trophy me-2"></i>Guinness World Records™ Participant
+                            </span>
+                        </div>
                         <p class="lead mb-4 fs-5 animate__animated animate__fadeIn animate__delay-1s">
                             Building intelligent, scalable solutions with clean code and user-focused design.
                         </p>
@@ -159,6 +168,22 @@
                                 <div>
                                     <h6 class="mb-0">Database</h6>
                                     <small class="text-muted">MySQL, SQL</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- In the About section, add this div after the existing content -->
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-trophy text-warning fs-3 me-3"></i>
+                            <div>
+                                <span class="fw-bold">Guinness World Records™</span>
+                                <div class="text-muted small">
+                                    Participant in the largest AI video lesson (14,075 users) 
+                                    <a href="img/projects/ai-maintenance-triage/guinness-world-records.pdf" target="_blank" class="text-warning">
+                                        <i class="fas fa-certificate ms-1"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -345,17 +370,23 @@
                             alt="AI Maintenance Photo Triage - n8n workflow">
                         <div class="position-absolute bottom-0 start-0 w-100 p-3"
                             style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                            <h5 class="text-white mb-0">AI Maintenance Photo Triage <span class="badge bg-warning bg-opacity-25 text-warning-emphasis">🏆 Hackathon Submission</span></h5>
+                            <h5 class="text-white mb-0">AI Maintenance Photo Triage <span class="badge bg-secondary bg-opacity-25 text-white">Hackathon Submission</span></h5>
                         </div>
                     </div>
                     <div class="card-body d-flex flex-column">
-                        <p class="text-muted mb-3">My official submission for the Kanz AI Hackathon 2026, part of a Guinness World Records™ event for the most users in an AI video lesson (14,075 participants, achieved with Kanz and the Ministry of Human Resources and Social Development). Replaces manual maintenance report forms with photo-based triage over WhatsApp: send a photo of a facility issue and Claude Vision categorizes the problem, assesses hazard level, and drafts a professional description, filing the report automatically when confident or asking for confirmation when not. Graded by AI judges and awarded a verified Competency Passport (Certificate ID KANZ-ADV-0254).</p>
+                        <p class="text-muted mb-3">My official submission for the Kanz AI Hackathon 2026, part of a Guinness World Records™ title for the most users in an AI video lesson (14,075 participants, achieved with Kanz and the Ministry of Human Resources and Social Development). Replaces manual maintenance report forms with photo-based triage over WhatsApp: send a photo of a facility issue and Claude Vision categorizes the problem, assesses hazard level, and drafts a professional description, filing the report automatically when confident or asking for confirmation when not. Graded by AI judges and awarded a verified Competency Passport (Certificate ID KANZ-ADV-0254).</p>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge bg-primary bg-opacity-10 text-primary">ManyChat</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">n8n</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">Claude Vision</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">.NET Core API</span>
                             <span class="badge bg-primary bg-opacity-10 text-primary">Azure</span>
+                        </div>
+                        <!-- Update the AI Maintenance Photo Triage project card -->
+                        <div class="position-absolute top-0 end-0 p-2">
+                            <span class="badge bg-warning text-dark px-3 py-2" style="font-size: 0.75rem;">
+                                <i class="fas fa-trophy me-1"></i> GWR 2026
+                            </span>
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-0 pt-0">
@@ -475,8 +506,17 @@
             <!-- Project: WatchVault (TV Time Replacement) -->
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
                 <div class="card h-100 border-0 project-card">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="mb-2">WatchVault <span class="badge bg-secondary bg-opacity-25 text-secondary">Design Spec</span></h5>
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/ShowLog/home1.png" class="img-fluid w-100 clickableImage"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
+                            data-images='["img/projects/ShowLog/home1.png","img/projects/ShowLog/home2.png","img/projects/ShowLog/calendar.png","img/projects/ShowLog/laibary.png","img/projects/ShowLog/stats1.png","img/projects/ShowLog/stats2.png"]'
+                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal" alt="ShowLog - TV show tracker">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">ShowLog <span class="badge bg-secondary bg-opacity-25 text-white">Design Spec</span></h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
                         <p class="text-muted mb-3">A self-hosted, ad-free alternative to TV Time for tracking shows and movies you watch. Currently at the architecture/design stage, covering watch history tracking, an "Up Next" calendar, ratings, unlimited custom lists, and data migration from TV Time, without social feeds or paywalls.</p>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge bg-primary bg-opacity-10 text-primary">Docker</span>
@@ -491,8 +531,18 @@
             <!-- Project: Happy Birthday Pages -->
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
                 <div class="card h-100 border-0 project-card">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="mb-2">Happy Birthday Pages <span class="badge bg-secondary bg-opacity-25 text-secondary">Personal</span></h5>
+                    <div class="project-images position-relative overflow-hidden rounded-top">
+                        <img src="img/projects/happy-birthday/qr.png" class="img-fluid w-100 clickableImage"
+                            style="height: auto; max-height: 160px; object-fit: contain;" loading="lazy"
+                            data-images='["img/projects/happy-birthday/qr.png"]'
+                            data-bs-toggle="modal" data-bs-target="#projectCarouselModal"
+                            alt="Happy Birthday Pages">
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3"
+                            style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                            <h5 class="text-white mb-0">Happy Birthday Pages <span class="badge bg-secondary bg-opacity-25 text-secondary">Personal</span></h5>
+                        </div>
+                    </div>    
+                    <div class="card-body">
                         <p class="text-muted mb-3">A personal collection of personalized birthday landing pages, each with its own interactive design, such as a matrix-rain balloon-pop reveal and a hacker-terminal experience, deployed with GitHub Pages.</p>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge bg-primary bg-opacity-10 text-primary">JavaScript</span>
@@ -875,6 +925,51 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Section -->
+    <section id="achievement" class="container py-5 my-md-5">
+        <div class="text-center mb-5">
+            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">
+                <i class="fas fa-trophy me-2"></i> World Record
+            </span>
+            <h2 class="mb-4 animate__animated animate__fadeIn">Guinness World Records™</h2>
+            <p class="text-muted mx-auto" style="max-width: 700px">Part of history in the making</p>
+        </div>
+        
+        <div class="card p-4 p-md-5 border-0 achievement-card" 
+            style="background: linear-gradient(135deg, #ffd70015 0%, #ffed4a08 100%); border: 2px solid #ffd70030;">
+            <div class="row align-items-center g-4">
+                <div class="col-md-3 text-center">
+                    <div class="display-1 text-warning">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="badge bg-warning text-dark px-4 py-2 mt-2 fs-6">
+                        14,075 Participants
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-3">Kanz AI Hackathon 2026</h4>
+                    <p class="text-muted mb-0">
+                        Proudly part of the Guinness World Records™ title for the 
+                        <strong>most users in an AI video lesson</strong>, organized by 
+                        Kanz in partnership with the Ministry of Human Resources and 
+                        Social Development.
+                    </p>
+                    <div class="mt-3 d-flex flex-wrap gap-2">
+                        <span class="badge bg-primary bg-opacity-10 text-primary">🏆 World Record</span>
+                        <span class="badge bg-primary bg-opacity-10 text-primary">👩‍💻 14k+ Participants</span>
+                        <span class="badge bg-primary bg-opacity-10 text-primary">🤖 AI Hackathon</span>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <a href="img/projects/ai-maintenance-triage/guinness-world-records.pdf" target="_blank"
+                    class="btn btn-warning btn-lg">
+                        <i class="fas fa-certificate me-2"></i>View Certificate
+                    </a>
                 </div>
             </div>
         </div>
